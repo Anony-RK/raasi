@@ -35,6 +35,8 @@
 		<script src="js/main.js"></script>
 		<!--<script src="js/itemcreation.js"></script>-->
 		<script src="branchcreation.js"></script>
+		<script src="js/customer.js"></script>
+
 		
 			<!--**************************
 			**************************

@@ -148,6 +148,14 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : null;
 				<?php include "include/templates/edititem.php"?>
                 <?php   } ?>
 
+				 <!-- Customer-->
+				 <?php   if($current_page == 'customer') { ?>
+				<?php include "include/templates/customer.php"?>
+                <?php   } ?>
+                <?php   if($current_page == 'editcustomer') { ?>
+				<?php include "include/templates/editcustomer.php"?>
+                <?php   } ?>
+
 				<!-- Main container end -->
 
 			</div>

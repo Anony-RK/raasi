@@ -57,7 +57,12 @@
 									</ul>
 								</div>
 							</li>
-							
+							<li >
+								<a href="editcustomer">
+									<i class="icon-users"></i>
+									<span class="">Customer</span>
+								</a>								
+							</li>
 							
 						</ul>
 					</div>

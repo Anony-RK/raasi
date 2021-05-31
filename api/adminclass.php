@@ -1643,6 +1643,221 @@ public function getitem($mysqli,$idupd)
 			
 			 
    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* Customer Details Add */ 
+
+public function addcustomer($mysqli) 
+{
+	$date  = date('Y-m-d');
+
+	if (isset($_POST['customername'])) {
+	 $customername             = mysqli_real_escape_string($mysqli,$_POST['customername']);
+	}
+	if (isset($_POST['gender'])) {
+	$gender             = mysqli_real_escape_string($mysqli,$_POST['gender']);		
+	}	
+	if (isset($_POST['dateofbirth'])) {
+	$dateofbirth               = mysqli_real_escape_string($mysqli,$_POST['dateofbirth']);		
+	}
+	if (isset($_POST['employeeimage'])) {
+	$employeeimage               = mysqli_real_escape_string($mysqli,$_POST['employeeimage']);		
+	}
+	if (isset($_POST['age'])) {
+	 $age             = mysqli_real_escape_string($mysqli,$_POST['age']);
+	}
+	if (isset($_POST['mobilenumber'])) {
+	$mobilenumber             = mysqli_real_escape_string($mysqli,$_POST['mobilenumber']);		
+	}	
+	if (isset($_POST['whatsappnumber'])) {
+	$whatsappnumber               = mysqli_real_escape_string($mysqli,$_POST['whatsappnumber']);		
+	}
+	if (isset($_POST['anniverserydate'])) {
+	$anniverserydate               = mysqli_real_escape_string($mysqli,$_POST['anniverserydate']);		
+	}
+	if (isset($_POST['emailid'])) {
+	$emailid               = mysqli_real_escape_string($mysqli,$_POST['emailid']);		
+	}
+	if (isset($_POST['needmembership'])) {
+	 $needmembership             = mysqli_real_escape_string($mysqli,$_POST['needmembership']);
+	}
+	if (isset($_POST['typeofcustomer'])) {
+	$typeofcustomer             = mysqli_real_escape_string($mysqli,$_POST['typeofcustomer']);		
+	}	
+	if (isset($_POST['noofvisit'])) {
+	$noofvisit               = mysqli_real_escape_string($mysqli,$_POST['noofvisit']);		
+	}
+	if (isset($_POST['frequencyofvisit'])) {
+	$frequencyofvisit               = mysqli_real_escape_string($mysqli,$_POST['frequencyofvisit']);
+	}
+	
+	if(isset($_POST['status']) &&    $_POST['status'] == 'Yes')		
+	{
+		$status=0;
+	}
+	else
+	{
+		$status=1;
+	}
+// Employee Image Upload
+$customerimage = $_FILES['customerimage']['name'];
+$customerimage_tmp = $_FILES['customerimage']['tmp_name'];
+$customerimagefolder="uploads/customerimage/".$employeeimage ;
+move_uploaded_file($customerimage_tmp, $customerimagefolder);
+
+	$qry = "INSERT INTO customer(customername, customername, dateofbirth,
+	 employeeimage, age, mobilenumber, whatsappnumber,
+	 anniverserydate, emailid, needmembership,
+	 typeofcustomer, noofvisit, frequencyofvisit,  status) 
+	VALUES ('".strip_tags($customername)."',
+	'".strip_tags($customername)."',
+	'".strip_tags($dateofbirth)."',
+	'".strip_tags($employeeimage)."',
+	'".strip_tags($age)."',
+	'".strip_tags($mobilenumber)."',
+	'".strip_tags($whatsappnumber)."',
+	'".strip_tags($anniverserydate)."',
+	'".strip_tags($emailid)."',
+	'".strip_tags($needmembership)."',
+	'".strip_tags($typeofcustomer)."',
+	'".strip_tags($noofvisit)."',
+	'".strip_tags($frequencyofvisit)."',
+	'".strip_tags($status)."');";		
+
+	$res =$mysqli->query($qry)or die("Error in Query".$mysqli->error);
+	$id = 0;
+	$id = $mysqli->insert_id;
+
+	return $id; 
+}
+
+public function deletecustomer($mysqli,$id) 
+{
+	$date  = date('Y-m-d'); 
+	$qry = 'UPDATE  customer  SET status="1"  WHERE customerid="'.mysqli_real_escape_string($mysqli,$id).'"'; 
+	$res =$mysqli->query($qry)or die("Error in delete query".$mysqli->error);	
+}
+
+public function updatecustomer($mysqli,$id){
+
+	$date  = date('Y-m-d');
+
+	if (isset($_POST['customername'])) {
+	 $customername             = mysqli_real_escape_string($mysqli,$_POST['customername']);
+	}
+	if (isset($_POST['gender'])) {
+	$gender             = mysqli_real_escape_string($mysqli,$_POST['gender']);		
+	}	
+	if (isset($_POST['dateofbirth'])) {
+	$dateofbirth               = mysqli_real_escape_string($mysqli,$_POST['dateofbirth']);		
+	}
+	if (isset($_POST['employeeimage'])) {
+	$employeeimage               = mysqli_real_escape_string($mysqli,$_POST['employeeimage']);		
+	}
+	if (isset($_POST['age'])) {
+	 $age             = mysqli_real_escape_string($mysqli,$_POST['age']);
+	}
+	if (isset($_POST['mobilenumber'])) {
+	$mobilenumber             = mysqli_real_escape_string($mysqli,$_POST['mobilenumber']);		
+	}	
+	if (isset($_POST['whatsappnumber'])) {
+	$whatsappnumber               = mysqli_real_escape_string($mysqli,$_POST['whatsappnumber']);		
+	}
+	if (isset($_POST['anniverserydate'])) {
+	$anniverserydate               = mysqli_real_escape_string($mysqli,$_POST['anniverserydate']);		
+	}
+	if (isset($_POST['emailid'])) {
+	$emailid               = mysqli_real_escape_string($mysqli,$_POST['emailid']);		
+	}
+	if (isset($_POST['needmembership'])) {
+	 $needmembership             = mysqli_real_escape_string($mysqli,$_POST['needmembership']);
+	}
+	if (isset($_POST['typeofcustomer'])) {
+	$typeofcustomer             = mysqli_real_escape_string($mysqli,$_POST['typeofcustomer']);		
+	}	
+	if (isset($_POST['noofvisit'])) {
+	$noofvisit               = mysqli_real_escape_string($mysqli,$_POST['noofvisit']);		
+	}
+	if (isset($_POST['frequencyofvisit'])) {
+	$frequencyofvisit               = mysqli_real_escape_string($mysqli,$_POST['frequencyofvisit']);
+	}
+	
+	if(isset($_POST['status']) &&    $_POST['status'] == 'Yes')		
+	{
+		$status=0;
+	}
+	else
+	{
+		$status=1;
+	}
+
+
+ $updateQry = 'UPDATE  customer  SET 
+ customername="'.strip_tags($customername).'" ,
+ gender="'.strip_tags($gender).'" ,
+ dateofbirth="'.strip_tags($dateofbirth).'" ,
+ employeeimage="'.strip_tags($employeeimage).'" ,	
+ age="'.strip_tags($age).'" ,	
+ mobilenumber="'.strip_tags($mobilenumber).'" ,
+ whatsappnumber="'.strip_tags($whatsappnumber).'" ,	
+ anniverserydate="'.strip_tags($anniverserydate).'", 
+ emailid="'.strip_tags($emailid).'" ,
+ needmembership="'.strip_tags($needmembership).'" ,
+ typeofcustomer="'.strip_tags($typeofcustomer).'" ,
+ noofvisit="'.strip_tags($noofvisit).'" ,
+ frequencyofvisit="'.strip_tags($frequencyofvisit).'" ,
+ status="'.$status.'" WHERE customerid="'.mysqli_real_escape_string($mysqli,$id).'"';  
+
+$res =$mysqli->query($updateQry)or die("Error in in update Query!.".$mysqli->error); 
+}
+
+public function getcustomer($mysqli,$idupd)
+{
+	$qry = "SELECT * FROM customer WHERE customerid='".mysqli_real_escape_string($mysqli,$idupd)."'"; 
+	$res =$mysqli->query($qry)or die("Error in Get All Records".$mysqli->error);
+	$detailrecords = array();
+	if ($mysqli->affected_rows>0)
+	{
+		$row = $res->fetch_object();	
+		$detailrecords['customerid']                    = $row->customerid; 
+		$detailrecords['customername']       	       = strip_tags($row->customername);
+		$detailrecords['gender']       	       = strip_tags($row->gender);
+		$detailrecords['dateofbirth']                  = strip_tags($row->dateofbirth);		  	
+		$detailrecords['employeeimage']             = strip_tags($row->employeeimage);		
+		$detailrecords['age']       	           = strip_tags($row->age);
+		$detailrecords['mobilenumber']       	           = strip_tags($row->mobilenumber);
+		$detailrecords['whatsappnumber']                   = strip_tags($row->whatsappnumber);		  	
+		$detailrecords['anniverserydate']                    = strip_tags($row->anniverserydate);	
+		$detailrecords['emailid']       	           = strip_tags($row->emailid);
+		$detailrecords['needmembership']       	       = strip_tags($row->needmembership);
+		$detailrecords['typeofcustomer']              = strip_tags($row->typeofcustomer);		  	
+		$detailrecords['noofvisit']             = strip_tags($row->noofvisit);	
+		$detailrecords['frequencyofvisit']       	       = strip_tags($row->frequencyofvisit);
+		$detailrecords['status']                    = strip_tags($row->status);		
+
+	}
+	return $detailrecords;
+}
 	}
 	
 ?>
