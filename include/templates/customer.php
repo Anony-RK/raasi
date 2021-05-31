@@ -273,7 +273,7 @@ if($idupd>0)
             <div class="row">
 					   <div class="col-md-2 d-flex" > 
 						<button type="button" id="customerdownload" name="customerdownload" tabindex="71" class="btn btn-primary mb-2"><span class="icon-download"></span>Download</button>
-						<button type="button" id="cuustomerupload" id="cuustomerupload" onclick="customerBulkupload()" tabindex="72" class="btn btn-primary mb-2 ml-2"><span class="icon-upload"></span>Upload</button>
+						<button type="file" id="cuustomerupload" name="customerupload" onclick="customerBulkupload()" tabindex="72" class="btn btn-primary mb-2 ml-2"><span class="icon-upload"></span>Upload</button>
 					   </div>
 					        <div class="col-md-2"> </div>
                             <div class="col-md-2"></div>

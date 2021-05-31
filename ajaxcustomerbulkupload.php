@@ -3,11 +3,11 @@ require_once('vendor/csvreader/php-excel-reader/excel_reader2.php');
 require_once('vendor/csvreader/SpreadsheetReader.php');
 include("ajaxconfig.php");
 
-if(isset($_FILES["file"]["type"])){
+if(isset($_FILES["customerupload"]["type"])){
 $allowedFileType = ['application/vnd.ms-excel','text/xls','text/xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
-if(in_array($_FILES["file"]["type"],$allowedFileType)){
-	    $targetPath = 'uploads/bulkimport/'.$_FILES['file']['name'];
-        move_uploaded_file($_FILES['file']['tmp_name'], $targetPath);
+if(in_array($_FILES["customerupload"]["type"],$allowedFileType)){
+	    $targetPath = 'uploads/bulkimport/'.$_FILES['customerupload']['name'];
+        move_uploaded_file($_FILES['customerupload']['tmp_name'], $targetPath);
         $Reader = new SpreadsheetReader($targetPath);
         $sheetCount = count($Reader->sheets());
         for($i=0;$i<$sheetCount;$i++)
