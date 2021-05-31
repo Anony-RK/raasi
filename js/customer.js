@@ -295,4 +295,29 @@ $(document).ready(function () {
       }
 });
 
+
+
+
+$("#employeedownload").click(function () {
+    window.location.href='uploads/downloadfiles/employeebulksample.xlsx'
+    });
+
 });
+
+
+function EmployeeBulkupload(){
+    var modal = document.getElementById("EmpBulkUploadModal");
+    var btn = document.getElementById("employeeupload");
+    var span = document.getElementsByClassName("bulkclose")[0];
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    }
