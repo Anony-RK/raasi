@@ -45,6 +45,8 @@ if($idupd>0)
             $financialyear            = $gettaxmaster['financialyear'];
 			$classification                	 = $gettaxmaster['classification'];
 			$description      	     = $gettaxmaster['description'];
+            $tax     	     = $gettaxmaster['tax'];
+
             $cess     	     = $gettaxmaster['cess'];
             $addl      			     = $gettaxmaster['addl'];
 			$total       	 = $gettaxmaster['total'];
@@ -98,9 +100,9 @@ if($idupd>0)
                                             
                                         </div>
                                         <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 ml-4">
-                                            <div class="form-group d-flex align-items-center justify-content-between" >
-                                                <label >Financial year</label>
-                                                <select class="form-control w-50" tabindex="3" id="financialyear" name="financialyear">
+                                            <div class="form-group d-flex align-items-center justify-content-around" >
+                                                <label >Financial year <span class="text-danger">*</span></label>
+                                                <select class="form-control w-75" tabindex="3" id="financialyear" name="financialyear">
                                                 
                                                 <option value=""> Select Gender</option>
                                                 <option <?php if(isset($financialyear)) { if($financialyear == "2001-2002" ) echo 'selected'; }  ?> value="2001-2002"> 2001-2002</option>
@@ -130,7 +132,7 @@ if($idupd>0)
 
                                             </div>
                                         </div>
-                                        <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                             
                                         </div>  
                                     </div>
@@ -144,9 +146,9 @@ if($idupd>0)
                                    
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group " >
-                                                <label >Classification</label>
+                                                <label >Classification <span class="text-danger">*</span></label>
                                                 <input type="text" tabindex="1" class="form-control " id="classification" name="classification" value="<?php if(isset($classification )) echo $classification ; ?>" >
-                                                <label id="classificationcheck" class="text-danger">Enter Customer Name</label>
+                                                <label id="classificationcheck" class="text-danger">Select Classification</label>
 
                                             </div>
                                         </div>
@@ -161,7 +163,7 @@ if($idupd>0)
 
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                    <div class="form-group " >
-                                                <label >Tax</label>
+                                                <label >Tax <span class="text-danger">*</span></label>
                                                 <input type="text" tabindex="1" class="form-control " id="tax" name="tax" value="<?php if(isset($tax )) echo $tax ; ?>" >
                                                 <label id="taxcheck" class="text-danger"> Enter tax</label>
 
@@ -169,7 +171,7 @@ if($idupd>0)
                                     </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                    <div class="form-group " >
-                                                <label >Cess</label>
+                                                <label >Cess <span class="text-danger">*</span></label>
                                                 <input type="text" tabindex="1" class="form-control " id="cess" name="cess" value="<?php if(isset($cess )) echo $cess ; ?>" >
                                                 <label id="cesscheck" class="text-danger">Enter Cess </label>
 
@@ -177,9 +179,9 @@ if($idupd>0)
                                     </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group " >
-                                                <label >Add </label>
+                                                <label >Addl <span class="text-danger">*</span></label>
                                                 <input type="text" tabindex="1" class="form-control " id="addl" name="addl" value="<?php if(isset($addl )) echo $addl ; ?>" >
-                                                <label id="addlcheck" class="text-danger">Enter Add</label>
+                                                <label id="addlcheck" class="text-danger">Enter Addl</label>
 
                                             </div>
                                         </div>
@@ -217,7 +219,7 @@ if($idupd>0)
                             <div class="col-md-2"></div>
                             <div class="col-md-2 ">
 						
-							<button type="submit" name="submittax" id="submittax" class="btn btn-primary" value="Submit" tabindex="73">Submit</button>
+							<button type="button" name="submittax" id="submittax" class="btn btn-primary" value="Submit" tabindex="73">Submit</button>
 						    <button type="button" class="btn btn-outline-secondary" tabindex="74">Cancel</button>
 					  </div>
                       

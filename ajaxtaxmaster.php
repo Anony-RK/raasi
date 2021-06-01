@@ -3,24 +3,17 @@
 include('ajaxconfig.php');
 
 $column = array(
-    'customername',
-    'gender',
-    'dateofbirth',
-    'employeeimage',
-    'age',
-    'mobilenumber',
-    'whatsappnumber',
-    'anniverserydate',
-    'emailid',    
-	'needmembership',
-	'typeofcustomer',
-    'noofvisit', 
-    'frequencyofvisit', 
-    
+    'financialyear',
+    'classification',
+    'description',
+    'tax',
+    'cess',
+    'addl',
+    'total',
 	'status'
 );
 
-$query = "SELECT * FROM customer where 1  ";
+$query = "SELECT * FROM taxmaster where 1  ";
 
 if($_POST['search']!="");
 {
@@ -39,19 +32,14 @@ else if($_POST['search']=="Inactive")
 
 else{	
    $query .= "
- and customername LIKE  '%".$_POST['search']."%'
- OR gender LIKE '%".$_POST['search']."%'
- OR dateofbirth LIKE '%".$_POST['search']."%'
- OR employeeimage LIKE '%".$_POST['search']."%'
- OR age LIKE '%".$_POST['search']."%'
- OR mobilenumber LIKE '%".$_POST['search']."%'
- OR whatsappnumber LIKE '%".$_POST['search']."%'
- OR anniverserydate LIKE '%".$_POST['search']."%'
- OR emailid LIKE '%".$_POST['search']."%'
- OR needmembership LIKE '%".$_POST['search']."%'
- OR typeofcustomer LIKE '%".$_POST['search']."%'
- OR noofvisit LIKE '%".$_POST['search']."%'
- OR frequencyofvisit LIKE '%".$_POST['search']."%'";
+ and financialyear LIKE  '%".$_POST['search']."%'
+ OR classification LIKE '%".$_POST['search']."%'
+ OR description LIKE '%".$_POST['search']."%'
+ OR tax LIKE '%".$_POST['search']."%'
+ OR cess LIKE '%".$_POST['search']."%'
+ OR addl LIKE '%".$_POST['search']."%'
+ OR total LIKE '%".$_POST['search']."%'
+ ";
  
 }
 }
@@ -86,19 +74,13 @@ $data = array();
 
 foreach ($result as $row) {
     $sub_array   = array();
-    $sub_array[] = $row['customername'];
-    $sub_array[] = $row['gender'];
-    $sub_array[] = $row['dateofbirth'];
-    $sub_array[] = $row['employeeimage'];
-    $sub_array[] = $row['age'];
-    $sub_array[] = $row['mobilenumber'];  
-    $sub_array[] = $row['whatsappnumber'];
-    $sub_array[] = $row['anniverserydate'];
-    $sub_array[] = $row['emailid'];
-    $sub_array[] = $row['needmembership'];
-    $sub_array[] = $row['typeofcustomer'];
-    $sub_array[] = $row['noofvisit'];
-    $sub_array[] = $row['frequencyofvisit'];
+    $sub_array[] = $row['financialyear'];
+    $sub_array[] = $row['classification'];
+    $sub_array[] = $row['description'];
+    $sub_array[] = $row['tax'];
+    $sub_array[] = $row['cess'];
+    $sub_array[] = $row['addl'];  
+    $sub_array[] = $row['total'];
     $status      = $row['status'];
     if($status==1)
 	{
@@ -108,10 +90,10 @@ foreach ($result as $row) {
 	{
     $sub_array[]="<span style='width: 144px;'><span class='kt-badge  kt-badge--success kt-badge--inline kt-badge--pill'>Active</span></span>";
 	}
-	$id          = $row['customerid'];
+	$id          = $row['taxid'];
 	
-	$action="<a href='customer&upd=$id' title='Edit details'><span class='icon-border_color'></span></a>&nbsp;&nbsp; 
-	<a href='customer&del=$id' title='Edit details'><span class='icon-trash-2'></span></a>";
+	$action="<a href='taxmaster&upd=$id' title='Edit details'><span class='icon-border_color'></span></a>&nbsp;&nbsp; 
+	<a href='taxmaster&del=$id' title='Edit details'><span class='icon-trash-2'></span></a>";
 
 	
 	$sub_array[] = $action;
@@ -120,7 +102,7 @@ foreach ($result as $row) {
 
 function count_all_data($connect)
 {
-    $query     = 'SELECT * FROM customer';
+    $query     = 'SELECT * FROM taxmaster';
     $statement = $connect->prepare($query);
     $statement->execute();
     return $statement->rowCount();
