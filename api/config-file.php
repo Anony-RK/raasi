@@ -8,7 +8,7 @@
 //die;
 //$ROOTPATH = $_SERVER['DOCUMENT_ROOT']."/";
 
-$URLPATH="http://localhost/rasi/"; 
+$URLPATH="http://localhost/rasi-1234/"; 
 $HOSTPATH = $URLPATH;
 $ROOTPATH = "http://localhost/";
 //$ROOTPATH = $_SERVER['DOCUMENT_ROOT']."/";

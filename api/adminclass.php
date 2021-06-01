@@ -1680,8 +1680,8 @@ public function addcustomer($mysqli)
 	if (isset($_POST['dateofbirth'])) {
 	$dateofbirth               = mysqli_real_escape_string($mysqli,$_POST['dateofbirth']);		
 	}
-	if (isset($_POST['employeeimage'])) {
-	$employeeimage               = mysqli_real_escape_string($mysqli,$_POST['employeeimage']);		
+	if (isset($_POST['customerimage'])) {
+	$customerimage               = mysqli_real_escape_string($mysqli,$_POST['customerimage']);		
 	}
 	if (isset($_POST['age'])) {
 	 $age             = mysqli_real_escape_string($mysqli,$_POST['age']);
@@ -1719,20 +1719,21 @@ public function addcustomer($mysqli)
 	{
 		$status=1;
 	}
-// Employee Image Upload
+// Customer Image Upload
 $customerimage = $_FILES['customerimage']['name'];
 $customerimage_tmp = $_FILES['customerimage']['tmp_name'];
-$customerimagefolder="uploads/customerimage/".$employeeimage ;
+$customerimagefolder="uploads/customerimage/".$customerimage ;
 move_uploaded_file($customerimage_tmp, $customerimagefolder);
 
-	$qry = "INSERT INTO customer(customername, customername, dateofbirth,
+	$qry = "INSERT INTO customer(customername, gender, dateofbirth,
 	 employeeimage, age, mobilenumber, whatsappnumber,
 	 anniverserydate, emailid, needmembership,
 	 typeofcustomer, noofvisit, frequencyofvisit,  status) 
-	VALUES ('".strip_tags($customername)."',
+	VALUES (
 	'".strip_tags($customername)."',
+	'".strip_tags($gender)."',
 	'".strip_tags($dateofbirth)."',
-	'".strip_tags($employeeimage)."',
+	'".strip_tags($customerimage)."',
 	'".strip_tags($age)."',
 	'".strip_tags($mobilenumber)."',
 	'".strip_tags($whatsappnumber)."',

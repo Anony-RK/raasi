@@ -1,6 +1,6 @@
 <?php 
 $id=0;
- if(isset($_POST['submitcustomer']) && $_POST['submitcustomer'] != '')
+ if(isset($_POST['submitemployee']) && $_POST['submitemployee'] != '')
  {
     if(isset($_POST['id']) && $_POST['id'] >0 && is_numeric($_POST['id'])){		
         $id = $_POST['id']; 	

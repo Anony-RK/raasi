@@ -257,7 +257,7 @@ $(document).ready(function () {
 
 
 
-  $('#submititembtn').click(function () {	
+  $('#submitcustomer').click(function () {	
 	
     customername();
     gender();
