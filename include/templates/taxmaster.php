@@ -40,20 +40,20 @@ if($idupd>0)
 {
 	$gettaxmaster = $userObj->gettaxmaster($mysqli,$idupd); 
 	
-	if (sizeof($getcustomer)>0) {
+	if (sizeof($gettaxmaster)>0) {
         for($tax=0;$tax<sizeof($gettaxmaster);$tax++)  {	
             $taxid              = $gettaxmaster['taxid'];
-            $financialyear            = $gettaxmaster['financialyear'];
-			$classification                	 = $gettaxmaster['classification'];
-			$description      	     = $gettaxmaster['description'];
-            $tax     	     = $gettaxmaster['tax'];
+            $financialyear      = $gettaxmaster['financialyear'];
+			$classification     = $gettaxmaster['classification'];
+			$description      	= $gettaxmaster['description'];
+            $tax     	        = $gettaxmaster['tax'];
 
-            $cess     	     = $gettaxmaster['cess'];
-            $addl      			     = $gettaxmaster['addl'];
-			$total       	 = $gettaxmaster['total'];
+            $cess     	        = $gettaxmaster['cess'];
+            $addl      			= $gettaxmaster['addl'];
+			$total       	    = $gettaxmaster['total'];
 			
 		
-            $status	    		     = $gettaxmaster['status'];
+            $status	    		= $gettaxmaster['status'];
 
 		}
 	}
