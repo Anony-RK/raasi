@@ -1907,7 +1907,7 @@ public function getcustomer($mysqli,$idupd)
 		  financialyear, classification,
 	   description,tax,
 	   cess, addl, total, status) 
-	  VALUES ('".strip_tags($customername)."',
+	  VALUES (
 	  '".strip_tags($financialyear)."',
 	  '".strip_tags($classification)."',
 	  '".strip_tags($description)."',

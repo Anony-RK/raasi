@@ -2,6 +2,7 @@
 $id=0;
  if(isset($_POST['submittax']) && $_POST['submittax'] != '')
  {
+     
     if(isset($_POST['id']) && $_POST['id'] >0 && is_numeric($_POST['id'])){		
         $id = $_POST['id']; 	
     $updatetaxmaster = $userObj->updatetaxmaster($mysqli,$id);  
@@ -147,7 +148,11 @@ if($idupd>0)
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group " >
                                                 <label >Classification <span class="text-danger">*</span></label>
-                                                <input type="text" tabindex="1" class="form-control " id="classification" name="classification" value="<?php if(isset($classification )) echo $classification ; ?>" >
+                                                <select class="form-control " tabindex="3" id="classification" name="classification"> 
+                                                    <option value=""> Select Classification</option>
+                                                    <option <?php if(isset($classification)) { if($classification == "TDS" ) echo 'selected'; }  ?> value="TDS"> TDS</option>
+                                                    <option <?php if(isset($classification)) { if($classification == "Custom Duty" ) echo 'selected'; }  ?> value="Custom Duty"> Custom Duty</option>
+                                                </select>
                                                 <label id="classificationcheck" class="text-danger">Select Classification</label>
 
                                             </div>
@@ -203,7 +208,7 @@ if($idupd>0)
                 
                         <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
                             <div class="custom-control custom-checkbox mt-4">
-                                <input type="checkbox" tabindex="70" value="Yes"  <?php if($status==0){echo'checked';}?> tabindex="16"  class="custom-control-input" id="status" name="status">
+                                <input type="checkbox" tabindex="70" value="Yes"  <?php if(isset($status)==0){echo'checked';}?> tabindex="16"  class="custom-control-input" id="status" name="status">
                                 <label class="custom-control-label" for="status">Status</label>
                             </div><br /><br />
                         </div>
@@ -219,7 +224,7 @@ if($idupd>0)
                             <div class="col-md-2"></div>
                             <div class="col-md-2 ">
 						
-							<button type="button" name="submittax" id="submittax" class="btn btn-primary" value="Submit" tabindex="73">Submit</button>
+							<button type="submit" name="submittax" id="submittax" class="btn btn-primary" value="Submit" tabindex="73">Submit</button>
 						    <button type="button" class="btn btn-outline-secondary" tabindex="74">Cancel</button>
 					  </div>
                       

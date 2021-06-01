@@ -15,16 +15,16 @@ $column = array(
 
 $query = "SELECT * FROM taxmaster where 1  ";
 
-if($_POST['search']!="");
+if(isset($_POST['search']) !="");
 {
 if (isset($_POST['search'])) {
 
-	if($_POST['search']=="Active")
+	if(isset($_POST['search']) == "Active")
 {
 	$query .="and status=0 ";
 	
 }
-else if($_POST['search']=="Inactive")
+else if(isset($_POST['search']) =="Inactive")
 {
 	$query .="and status=1 ";
 }
@@ -53,8 +53,8 @@ if (isset($_POST['order'])) {
 
 $query1 = '';
 
-if ($_POST['length'] != -1) {
-    $query1 = 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
+if (isset($_POST['length']) != -1) {
+    $query1 = 'LIMIT ' . isset($_POST['start']) . ', ' . isset($_POST['length']);
 }
 
 $statement = $connect->prepare($query);

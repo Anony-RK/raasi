@@ -133,4 +133,43 @@ $(document).ready(function () {
       return false;
     }
   });
+
+
+
+
+//Tax Calculation
+
+  function Total() {
+    var tax = 0;
+    var cess = 0;
+    var addl = 0;
+    var tot = 0;
+    if ($("#tax").val() != "" && $("#tax").val() != null) {
+       
+        tax = parseFloat($("#tax").val());
+        
+        
+    }
+    if ($("#cess").val() != "" && $("#cess").val() != null) {
+        cess = parseFloat($("#cess").val());
+    }
+    if ($("#add").val() != "" && $("#addl").val() != null) {
+        addl = parseFloat($("#addl").val());
+    }
+    //alert(tax+","+cess+","+addl);
+    tot = parseFloat(tax) + parseFloat(cess) + parseFloat(addl);
+   
+    $("#total").val(tot);
+};
+$("#tax").keyup(function () {
+    Total();
 });
+$("#cess").keyup(function () {
+    Total();
+});
+$("#addl").keyup(function () {
+    Total();
+});
+
+});
+

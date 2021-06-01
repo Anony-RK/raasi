@@ -209,19 +209,7 @@
 		[10, 25, 50, "All"]
 	]
 	});
-	$('#search').change(function(){
-        branch_info.draw();
-		company_info.draw();
-		item_info.draw();
-		employee_info.draw();
-            });
-
-
-
-
-
-			
-
+	
 
 	var taxmaster_info = $('#taxmaster_info').DataTable({
 		"order": [[ 0, "desc" ]],
@@ -230,7 +218,7 @@
 		'serverMethod': 'post',
 		//'searching': false, // Remove default Search Control
 		'ajax': {
-			'url':'ajaxcustomerfetch.php',
+			'url':'ajaxtaxmaster.php',
 			'data': function(data){
                 var search = $('#search').val();
 							// Append to data

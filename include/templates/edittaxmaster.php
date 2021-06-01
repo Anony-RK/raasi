@@ -29,21 +29,21 @@ $mscid=$_GET['msc'];
 if($mscid==1)
 {?>
 		<div class="alert alert-success" role="alert">
-                            <div class="alert-text">Branch Added Successfully!</div>
+                            <div class="alert-text">Tax Added Successfully!</div>
                         </div> 
 <?php
 }
 if($mscid==2)
 {?>
 	<div class="alert alert-success" role="alert">
-	<div class="alert-text">Branch updated Successfully!</div>
+	<div class="alert-text">Tax updated Successfully!</div>
 </div>
 <?php
 }
 if($mscid==3)
 {?>
 <div class="alert alert-danger" role="alert">
-                            <div class="alert-text">Branch Inactive Successfully!</div>
+                            <div class="alert-text">Tax Inactive Successfully!</div>
                         </div>
 <?php
 }
@@ -52,11 +52,12 @@ if($mscid==3)
 									<table id="taxmaster_info" class="table custom-table">
 										<thead>
 											<tr>
+											 <th>Financial Year</th>
 											  <th>Classification</th>
 											  <th>Description</th>
 											  <th>Tax</th>
 											  <th>Cess</th>											 
-											  <th>Add</th>
+											  <th>Addl</th>
 											  <th>Total</th>											 
 											  <th>Status</th>
 											  <th>Action</th>
