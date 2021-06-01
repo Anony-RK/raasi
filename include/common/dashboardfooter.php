@@ -177,11 +177,53 @@
 		item_info.draw();
 		employee_info.draw();
             });
-	});
+	// });
 	
 
 
 	var customer_info = $('#customer_info').DataTable({
+		"order": [[ 0, "desc" ]],
+		'processing': true,
+		'serverSide': true,
+		'serverMethod': 'post',
+		//'searching': false, // Remove default Search Control
+		'ajax': {
+			'url':'ajaxcustomerfetch.php',
+			'data': function(data){
+                var search = $('#search').val();
+							// Append to data
+                           
+		  	data.search      = search;
+	
+
+
+			}
+		},
+		
+	dom: 'lBfrtip',
+	buttons: [
+		'csv', 'colvis',
+	],
+	"lengthMenu": [
+		[10, 25, 50, -1],
+		[10, 25, 50, "All"]
+	]
+	});
+	$('#search').change(function(){
+        branch_info.draw();
+		company_info.draw();
+		item_info.draw();
+		employee_info.draw();
+            });
+
+
+
+
+
+			
+
+
+	var taxmaster_info = $('#taxmaster_info').DataTable({
 		"order": [[ 0, "desc" ]],
 		'processing': true,
 		'serverSide': true,
@@ -229,4 +271,6 @@
 		<script src="js/employeemaster.js"></script>
 		<?php } if($current_page == 'customer') { ?>
 			<script src="js/customer.js"></script>
-			<?php } ?>
+			<?php } if($current_page == 'taxmaster') { ?>
+			<script src="js/taxmaster.js"></script>
+			<?php }   ?>

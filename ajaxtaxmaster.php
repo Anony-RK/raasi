@@ -22,7 +22,7 @@ $column = array(
 
 $query = "SELECT * FROM customer where 1  ";
 
-if(isset($_POST['search'])!="");
+if($_POST['search']!="");
 {
 if (isset($_POST['search'])) {
 
@@ -51,8 +51,8 @@ else{
  OR needmembership LIKE '%".$_POST['search']."%'
  OR typeofcustomer LIKE '%".$_POST['search']."%'
  OR noofvisit LIKE '%".$_POST['search']."%'
- OR frequencyofvisit LIKE '%".$_POST['search']."%'
- ";
+ OR frequencyofvisit LIKE '%".$_POST['search']."%'";
+ 
 }
 }
 }
@@ -65,8 +65,8 @@ if (isset($_POST['order'])) {
 
 $query1 = '';
 
-if (isset($_POST['length']) != -1) {
-    $query1 = 'LIMIT ' . isset($_POST['start']) . ', ' . isset($_POST['length']);
+if ($_POST['length'] != -1) {
+    $query1 = 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 }
 
 $statement = $connect->prepare($query);

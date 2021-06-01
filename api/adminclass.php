@@ -1667,7 +1667,7 @@ public function getitem($mysqli,$idupd)
 
    /* Customer Details Add */ 
 
-public function addcustomer($mysqli) 
+public function addcustomer($mysqli)  
 {
 	$date  = date('Y-m-d');
 
@@ -1858,6 +1858,148 @@ public function getcustomer($mysqli,$idupd)
 	}
 	return $detailrecords;
 }
+
+
+
+
+
+
+
+  /* tax master Details Add */ 
+
+  public function addtaxmaster($mysqli)  
+  {
+	  $date  = date('Y-m-d');
+  
+	  if (isset($_POST['financialyear'])) {
+	   $financialyear             = mysqli_real_escape_string($mysqli,$_POST['financialyear']);
+	  }
+	  if (isset($_POST['classification'])) {
+	  $classification             = mysqli_real_escape_string($mysqli,$_POST['classification']);		
+	  }	
+	  if (isset($_POST['description'])) {
+	  $description               = mysqli_real_escape_string($mysqli,$_POST['description']);		
+	  }
+	  if (isset($_POST['tax'])) {
+		$tax               = mysqli_real_escape_string($mysqli,$_POST['tax']);		
+		}
+	  if (isset($_POST['cess'])) {
+	  $cess               = mysqli_real_escape_string($mysqli,$_POST['cess']);		
+	  }
+	  if (isset($_POST['addl'])) {
+	   $addl             = mysqli_real_escape_string($mysqli,$_POST['addl']);
+	  }
+	  if (isset($_POST['total'])) {
+	  $total             = mysqli_real_escape_string($mysqli,$_POST['total']);		
+	  }	
+	  
+	  if(isset($_POST['status']) &&    $_POST['status'] == 'Yes')		
+	  {
+		  $status=0;
+	  }
+	  else
+	  {
+		  $status=1;
+	  }
+
+	  $qry = "INSERT INTO taxmaster(
+		  financialyear, classification,
+	   description,tax,
+	   cess, addl, total, status) 
+	  VALUES ('".strip_tags($customername)."',
+	  '".strip_tags($financialyear)."',
+	  '".strip_tags($classification)."',
+	  '".strip_tags($description)."',
+	  '".strip_tags($tax)."',
+	  '".strip_tags($cess)."',
+	  '".strip_tags($addl)."',
+	  '".strip_tags($total)."',
+	  '".strip_tags($status)."');";		
+  
+	  $res =$mysqli->query($qry)or die("Error in Query".$mysqli->error);
+	  $id = 0;
+	  $id = $mysqli->insert_id;
+  
+	  return $id; 
+  }
+  
+  public function deletetaxmaster($mysqli,$id) 
+  {
+	  $date  = date('Y-m-d'); 
+	  $qry = 'UPDATE  taxmaster  SET status="1"  WHERE taxid="'.mysqli_real_escape_string($mysqli,$id).'"'; 
+	  $res =$mysqli->query($qry)or die("Error in delete query".$mysqli->error);	
+  }
+  
+  public function updatetaxmaster($mysqli,$id){
+  
+	  $date  = date('Y-m-d');
+  
+	  if (isset($_POST['financialyear'])) {
+	   $financialyear             = mysqli_real_escape_string($mysqli,$_POST['financialyear']);
+	  }
+	  if (isset($_POST['classification'])) {
+	  $classification             = mysqli_real_escape_string($mysqli,$_POST['classification']);		
+	  }	
+	  if (isset($_POST['description'])) {
+	  $description               = mysqli_real_escape_string($mysqli,$_POST['description']);		
+	  }
+	  if (isset($_POST['tax'])) {
+		$tax               = mysqli_real_escape_string($mysqli,$_POST['tax']);		
+		}
+	  if (isset($_POST['cess'])) {
+	  $cess               = mysqli_real_escape_string($mysqli,$_POST['cess']);		
+	  }
+	  if (isset($_POST['addl'])) {
+	   $addl             = mysqli_real_escape_string($mysqli,$_POST['addl']);
+	  }
+	  if (isset($_POST['total'])) {
+	  $total             = mysqli_real_escape_string($mysqli,$_POST['total']);		
+	  }	
+	 
+	  if(isset($_POST['status']) &&    $_POST['status'] == 'Yes')		
+	  {
+		  $status=0;
+	  }
+	  else
+	  {
+		  $status=1;
+	  }
+  
+  
+   $updateQry = 'UPDATE  taxmaster  SET 
+   financialyear="'.strip_tags($financialyear).'" ,
+   classification="'.strip_tags($classification).'" ,
+   description="'.strip_tags($description).'" ,
+   tax="'.strip_tags($tax).'" ,
+   cess="'.strip_tags($cess).'" ,	
+   addl="'.strip_tags($addl).'" ,	
+   total="'.strip_tags($total).'" ,
+   status="'.$status.'" WHERE taxid="'.mysqli_real_escape_string($mysqli,$id).'"';  
+  
+  $res =$mysqli->query($updateQry)or die("Error in in update Query!.".$mysqli->error); 
+  }
+  
+  public function gettaxmaster($mysqli,$idupd)
+  {
+	  $qry = "SELECT * FROM taxmaster WHERE taxid='".mysqli_real_escape_string($mysqli,$idupd)."'"; 
+	  $res =$mysqli->query($qry)or die("Error in Get All Records".$mysqli->error);
+	  $detailrecords = array();
+	  if ($mysqli->affected_rows>0)
+	  {
+		  $row = $res->fetch_object();	
+		  $detailrecords['taxid']                    = $row->taxid; 
+		  $detailrecords['financialyear']       	       = strip_tags($row->financialyear);
+		  $detailrecords['classification']       	       = strip_tags($row->classification);
+		  $detailrecords['description']                  = strip_tags($row->description);	
+		  $detailrecords['tax']                  = strip_tags($row->tax);		  	
+		  $detailrecords['cess']             = strip_tags($row->cess);		
+		  $detailrecords['addl']       	           = strip_tags($row->addl);
+		  $detailrecords['total']       	           = strip_tags($row->total);
+		  $detailrecords['status']                    = strip_tags($row->status);		
+  
+	  }
+	  return $detailrecords;
+  }
 	}
 	
 ?>

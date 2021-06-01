@@ -63,6 +63,12 @@
 									<span class="">Customer</span>
 								</a>								
 							</li>
+							<li >
+								<a href="edittaxmaster">
+									<i class="icon-users"></i>
+									<span class="">Tax Master</span>
+								</a>								
+							</li>
 							
 						</ul>
 					</div>
