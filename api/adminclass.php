@@ -1957,7 +1957,7 @@ public function getcustomer($mysqli,$idupd)
 	  $total             = mysqli_real_escape_string($mysqli,$_POST['total']);		
 	  }	
 	 
-	  if(isset($_POST['status']) &&    $_POST['status'] == 'Yes')		
+	  if(isset($_POST['status']) && $_POST['status'] == 'Yes')		
 	  {
 		  $status=0;
 	  }
