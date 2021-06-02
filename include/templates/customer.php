@@ -51,12 +51,26 @@ if($idupd>0)
 			$anniverserydate         = $getcustomer['anniverserydate'];
 			$emailid     			 = $getcustomer['emailid'];
 			$needmembership          = $getcustomer['needmembership'];
-
+            
+            $gstno                   = $getcustomer['gstno'];
+            $contactpersion          = $getcustomer['contactpersion'];
+            $address1                 = $getcustomer['address1'];
+            $address2                 = $getcustomer['address2'];
+            $pincode                  = $getcustomer['pincode'];
+            $state                    = $getcustomer['state'];
+            
 
 			$typeofcustomer	         = $getcustomer['typeofcustomer'];
 			$noofvisit               = $getcustomer['noofvisit'];
             $frequencyofvisit        = $getcustomer['frequencyofvisit']; 
 		
+
+
+            $subgroup          = $getcustomer['subgroup'];
+            $group          = $getcustomer['group'];
+            $subgroup          = $getcustomer['ledgername'];
+
+
             $status	    		     = $getcustomer['status'];
 
 		}
@@ -101,6 +115,14 @@ if($idupd>0)
                             <!--Fields -->
                            <div class="col-md-8 "> 
                               <div class="row">
+                              <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label >Customer ID</label>
+                                                <input type="text" tabindex="1" class="form-control" id="customerid" name="customerid" value="<?php if(isset($customername )) echo $customername ; ?>" placeholder="Enter Customer Name">
+                                                <label id="customeridcheck" class="text-danger">Enter Customer ID</label>
+
+                                            </div>
+                                        </div>
                                    <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label >Customer Name</label>
@@ -185,6 +207,87 @@ if($idupd>0)
                                              <label id="needmembershipcheck" class="text-danger">Enter Need Membership</label>           
                                             </div>
                                         </div>
+
+
+                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="disabledInput">GST No</label>
+                                                <input type="text" tabindex="6" id="gstno" name="gstno" class="form-control" value="<?php if(isset($gstno )) echo $gstno ; ?>">
+                                                <!-- <label id="gstnovalid" class="text-danger">Enter Valid GST Number</label> -->
+                                                <label id="gstnocheck" class="text-danger">Enter GST Number</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="disabledInput">Contact Persion</label>
+                                                <input type="email" tabindex="6" id="contactpersion" name="contactpersion" class="form-control" value="<?php if(isset($contactpersion )) echo $contactpersion ; ?>">
+                                                <label id="contactpersioncheck" class="text-danger">Enter Contact Persion</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="disabledInput">Address 1</label>
+                                                <input type="email" tabindex="6" id="address1" name="address1" class="form-control" value="<?php if(isset($address1 )) echo $address1 ; ?>">
+                                                <label id="address1check" class="text-danger">Enter Address 1</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="disabledInput">Address 2</label>
+                                                <input type="email" tabindex="6" id="address2" name="address2" class="form-control" value="<?php if(isset($address2 )) echo $address2 ; ?>">
+                                                <label id="address2check" class="text-danger">Enter Address 2</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="disabledInput">Pin Code</label>
+                                                <input type="number" tabindex="6" id="pincode" name="pincode" class="form-control" value="<?php if(isset($pincode )) echo $pincode ; ?>">
+                                                <label id="pincodecheck" class="text-danger">Enter Pincode</label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="disabledInput">State</label>                                               
+                                                <select class="form-control chosen-select comp-field " id="State" name="State"><option value="">Select a State...</option>
+                                                    <option <?php if(isset($state)) { if($state == "Andhra Pradesh" ) echo 'selected'; }  ?>  value="Andhra Pradesh">Andhra Pradesh</option>
+                                                    <option <?php if(isset($state)) { if($state == "Arunachal Pradesh" ) echo 'selected'; }  ?>  value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                    <option <?php if(isset($state)) { if($state == "Assam" ) echo 'selected'; }  ?>  value="Assam ">Assam </option>
+                                                    <option <?php if(isset($state)) { if($state == "Bihar" ) echo 'selected'; }  ?>  value="Bihar ">Bihar </option>
+                                                    <option <?php if(isset($state)) { if($state == "Chandigarh" ) echo 'selected'; }  ?>  value="Chandigarh ">Chandigarh </option>
+                                                    <option <?php if(isset($state)) { if($state == "Chandigarh" ) echo 'selected'; }  ?>  value="Chandigarh">Chandigarh</option>
+                                                    <option <?php if(isset($state)) { if($state == "Gujarat" ) echo 'selected'; }  ?>  value="Gujarat">Gujarat</option>
+                                                    <option <?php if(isset($state)) { if($state == "Haryana" ) echo 'selected'; }  ?>  value="Haryana">Haryana</option>
+                                                    <option <?php if(isset($state)) { if($state == "Himachal Pradesh" ) echo 'selected'; }  ?>  value="Himachal Pradesh">Himachal Pradesh</option>
+                                                    <option <?php if(isset($state)) { if($state == "Jharkhand" ) echo 'selected'; }  ?>  value="Jharkhand">Jharkhand</option>
+                                                    <option <?php if(isset($state)) { if($state == "Karnataka" ) echo 'selected'; }  ?>  value="Karnataka">Karnataka</option>
+                                                    <option <?php if(isset($state)) { if($state == "Kerala" ) echo 'selected'; }  ?>  value="Kerala">Kerala</option>
+                                                    <option <?php if(isset($state)) { if($state == "Madhya Pradesh" ) echo 'selected'; }  ?>  value="Madhya Pradesh">Madhya Pradesh</option>
+                                                    <option <?php if(isset($state)) { if($state == "Maharashtra" ) echo 'selected'; }  ?>  value="Maharashtra">Maharashtra</option>
+                                                    <option <?php if(isset($state)) { if($state == "Manipur" ) echo 'selected'; }  ?>  value="Manipur">Manipur</option>
+                                                    <option <?php if(isset($state)) { if($state == "Meghalaya" ) echo 'selected'; }  ?>  value="Meghalaya">Meghalaya</option>
+                                                    <option <?php if(isset($state)) { if($state == "Mizoram" ) echo 'selected'; }  ?>  value="Mizoram">Mizoram</option>
+                                                    <option <?php if(isset($state)) { if($state == "Nagaland" ) echo 'selected'; }  ?>  value="Nagaland">Nagaland</option>
+                                                    <option <?php if(isset($state)) { if($state == "Odisha" ) echo 'selected'; }  ?>  value="Odisha">Odisha</option>
+                                                    <option <?php if(isset($state)) { if($state == "Puducherry" ) echo 'selected'; }  ?>  value="Puducherry">Puducherry</option>
+                                                    <option <?php if(isset($state)) { if($state == "Punjab" ) echo 'selected'; }  ?>  value="Punjab">Punjab</option>
+                                                    <option <?php if(isset($state)) { if($state == "Rajasthan" ) echo 'selected'; }  ?>  value="Rajasthan">Rajasthan</option>
+                                                    <option <?php if(isset($state)) { if($state == "Sikkim" ) echo 'selected'; }  ?>  value="Sikkim">Sikkim</option>
+                                                    <option <?php if(isset($state)) { if($state == "Tamil Nadu" ) echo 'selected'; }  ?>  value="Tamil Nadu">Tamil Nadu</option>
+                                                    <option <?php if(isset($state)) { if($state == "Telangana" ) echo 'selected'; }  ?>  value="Telangana">Telangana</option>
+                                                    <option <?php if(isset($state)) { if($state == "Tripura" ) echo 'selected'; }  ?>  value="Tripura">Tripura</option>
+                                                    <option <?php if(isset($state)) { if($state == "Uttar Pradesh" ) echo 'selected'; }  ?>  value="Uttar Pradesh">Uttar Pradesh</option>
+                                                    <option <?php if(isset($state)) { if($state == "Uttarakhand" ) echo 'selected'; }  ?>  value="Uttarakhand">Uttarakhand</option>
+                                                    <option <?php if(isset($state)) { if($state == "West Bengal" ) echo 'selected'; }  ?>  value="West Bengal">West Bengal</option>
+                                                </select>
+                                                <label id="statecheck" class="text-danger">Enter State</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>  
 
@@ -230,7 +333,7 @@ if($idupd>0)
                                 <div class="form-group">
                                     <label for="disabledInput">Type Of Customer</label>
                                     <select class="form-control" tabindex="3" id="typeofcustomer" name="typeofcustomer">     
-                                      <option value=""> Select Membership</option>
+                                      <option value=""> Select Type</option>
                                       <option <?php if(isset($typeofcustomer)) { if($typeofcustomer == "Regular" ) echo 'selected'; }  ?> value="Regular"> Regular</option>
                                       <option <?php if(isset($typeofcustomer)) { if($typeofcustomer == "New" ) echo 'selected'; }  ?> value="New"> New</option>
                                     </select>
@@ -261,14 +364,77 @@ if($idupd>0)
                         </div>
 
 
+                    
 
 
                         </div>
-                    </div>
-                </div>
-            <!-- </div> -->
-      
 
+                       
+                    </div>
+
+
+                    
+                </div>
+               
+             </div>
+      
+             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card">
+					<div class="card-header">
+						<div class="card-title">Financial Info</div>
+					</div>
+                    <div class="card-body">
+
+                    <div class="row"> 
+                            <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
+                                    <div class="form-group">
+                                        <label >Sub Group</label>
+                                        <select class="form-control comp-field chosen-select choMandatoryFields" data-val="true" data-val-number="The field Sub_Group must be a number." data-val-required="The Sub_Group field is required." id="subgroup" name="subgroup">
+                                            <option value="">Select a Account Group...</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Reserve & Surplus" ) echo 'selected'; }  ?>  value="11">Reserve &amp; Surplus</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Sundry Creditors" ) echo 'selected'; }  ?> value="12">Sundry Creditors</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Loans ( Liability)" ) echo 'selected'; }  ?> value="13">Loans ( Liability)</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Bank OD" ) echo 'selected'; }  ?> value="14">Bank OD</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Opening Stock" ) echo 'selected'; }  ?> value="15">Opening Stock</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Cash-in-hand" ) echo 'selected'; }  ?> value="16">Cash-in-hand</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Bank Accounts" ) echo 'selected'; }  ?> value="17">Bank Accounts</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Investments" ) echo 'selected'; }  ?> value="18">Investments</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Loans and Advances" ) echo 'selected'; }  ?> value="19">Loans and Advances</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Books ( for Students)" ) echo 'selected'; }  ?> value="20">Books ( for Students)</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Books ( for Library )" ) echo 'selected'; }  ?> value="21">Books ( for Library )</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Printing & stationery" ) echo 'selected'; }  ?> value="22">Printing &amp; stationery</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "School Fees" ) echo 'selected'; }  ?> value="23">School Fees</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Staff Salary" ) echo 'selected'; }  ?> value="24">Staff Salary</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Sundry Debtors" ) echo 'selected'; }  ?> value="1007">Sundry Debtors </option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Sales tax payable" ) echo 'selected'; }  ?> value="1009">Sales tax payable</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "checking" ) echo 'selected'; }  ?> value="1011">checking</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Test1" ) echo 'selected'; }  ?> value="1013">Test1</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "test2" ) echo 'selected'; }  ?> value="1014">test2</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Test3" ) echo 'selected'; }  ?> value="1015">Test3</option>
+                                            <option <?php if(isset($subgroup)) { if($subgroup == "Test5" ) echo 'selected'; }  ?> value="1016">Test5</option>
+                                        </select>
+                                        <label id="subgroupcheck" class="text-danger">Select Sub Group</label>           
+
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-group">
+                                        <label for="inputEmail">Group</label>
+                                        <input type="number" readonly tabindex="12" class="form-control" id="group" name="group"  value="<?php if(isset($group )) echo $group ; ?>">
+                                        <!-- <label id="groupcheck" class="text-danger">Enter Frequency OF Visit</label>            -->
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-group">
+                                        <label for="inputEmail">Ledger Name</label>
+                                        <input type="number" readonly tabindex="12" class="form-control" id="ledgername" name="ledgername"  value="<?php if(isset($ledgername )) echo $ledgername ; ?>">
+                                        <!-- <label id="frequencyofvisitcheck" class="text-danger">Enter Frequency OF Visit</label>            -->
+                                    </div>
+                                </div>
+                         </div>
+                        </div>
+                 </div>
       
             <div class="row">
 					   <div class="col-md-2 d-flex" > 

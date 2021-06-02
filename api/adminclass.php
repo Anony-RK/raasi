@@ -1701,6 +1701,28 @@ public function addcustomer($mysqli)
 	if (isset($_POST['needmembership'])) {
 	 $needmembership             = mysqli_real_escape_string($mysqli,$_POST['needmembership']);
 	}
+
+
+	if (isset($_POST['gstno'])) {
+		$gstno               = mysqli_real_escape_string($mysqli,$_POST['gstno']);		
+		}
+		if (isset($_POST['contactpersion'])) {
+		 $contactpersion             = mysqli_real_escape_string($mysqli,$_POST['contactpersion']);
+		}
+		if (isset($_POST['address1'])) {
+		$address1             = mysqli_real_escape_string($mysqli,$_POST['address1']);		
+		}	
+		if (isset($_POST['address2'])) {
+		$address2               = mysqli_real_escape_string($mysqli,$_POST['address2']);		
+		}
+		if (isset($_POST['pincode'])) {
+		$pincode               = mysqli_real_escape_string($mysqli,$_POST['pincode']);		
+		}
+		if (isset($_POST['State'])) {
+		$State               = mysqli_real_escape_string($mysqli,$_POST['State']);		
+		}
+		
+
 	if (isset($_POST['typeofcustomer'])) {
 	$typeofcustomer             = mysqli_real_escape_string($mysqli,$_POST['typeofcustomer']);		
 	}	
@@ -1710,6 +1732,21 @@ public function addcustomer($mysqli)
 	if (isset($_POST['frequencyofvisit'])) {
 	$frequencyofvisit               = mysqli_real_escape_string($mysqli,$_POST['frequencyofvisit']);
 	}
+
+
+
+	if (isset($_POST['subgroup'])) {
+		$subgroup             = mysqli_real_escape_string($mysqli,$_POST['subgroup']);
+	   }
+
+	   if (isset($_POST['group'])) {
+		$group             = mysqli_real_escape_string($mysqli,$_POST['group']);
+	   }
+
+	   if (isset($_POST['ledgername'])) {
+		$ledgername             = mysqli_real_escape_string($mysqli,$_POST['ledgername']);
+	   }
+
 	
 	if(isset($_POST['status']) &&    $_POST['status'] == 'Yes')		
 	{
@@ -1727,8 +1764,9 @@ move_uploaded_file($customerimage_tmp, $customerimagefolder);
 
 	$qry = "INSERT INTO customer(customername, gender, dateofbirth,
 	 employeeimage, age, mobilenumber, whatsappnumber,
-	 anniverserydate, emailid, needmembership,
-	 typeofcustomer, noofvisit, frequencyofvisit,  status) 
+	 anniverserydate, emailid, needmembership,gstno, contactpersion, address1,
+	 address2, pincode, state,
+	 typeofcustomer, noofvisit, frequencyofvisit,subgroup,group,ledgername,status) 
 	VALUES (
 	'".strip_tags($customername)."',
 	'".strip_tags($gender)."',
@@ -1740,9 +1778,25 @@ move_uploaded_file($customerimage_tmp, $customerimagefolder);
 	'".strip_tags($anniverserydate)."',
 	'".strip_tags($emailid)."',
 	'".strip_tags($needmembership)."',
+	'".strip_tags($gstno)."',
+	'".strip_tags($contactpersion)."',
+	'".strip_tags($address1)."',
+	'".strip_tags($address2)."',
+	'".strip_tags($pincode)."',
+	'".strip_tags($state)."',
+
+
 	'".strip_tags($typeofcustomer)."',
 	'".strip_tags($noofvisit)."',
 	'".strip_tags($frequencyofvisit)."',
+
+
+
+
+	'".strip_tags($subgroup)."',
+	'".strip_tags($group)."',
+	'".strip_tags($ledgername)."',
+
 	'".strip_tags($status)."');";		
 
 	$res =$mysqli->query($qry)or die("Error in Query".$mysqli->error);
@@ -1793,6 +1847,31 @@ public function updatecustomer($mysqli,$id){
 	if (isset($_POST['needmembership'])) {
 	 $needmembership             = mysqli_real_escape_string($mysqli,$_POST['needmembership']);
 	}
+
+
+
+	
+	if (isset($_POST['gstno'])) {
+		$gstno               = mysqli_real_escape_string($mysqli,$_POST['gstno']);		
+		}
+		if (isset($_POST['contactpersion'])) {
+		 $contactpersion             = mysqli_real_escape_string($mysqli,$_POST['contactpersion']);
+		}
+		if (isset($_POST['address1'])) {
+		$address1             = mysqli_real_escape_string($mysqli,$_POST['address1']);		
+		}	
+		if (isset($_POST['address2'])) {
+		$address2               = mysqli_real_escape_string($mysqli,$_POST['address2']);		
+		}
+		if (isset($_POST['pincode'])) {
+		$pincode               = mysqli_real_escape_string($mysqli,$_POST['pincode']);		
+		}
+		if (isset($_POST['State'])) {
+		$State               = mysqli_real_escape_string($mysqli,$_POST['State']);		
+		}
+
+
+
 	if (isset($_POST['typeofcustomer'])) {
 	$typeofcustomer             = mysqli_real_escape_string($mysqli,$_POST['typeofcustomer']);		
 	}	
@@ -1803,6 +1882,22 @@ public function updatecustomer($mysqli,$id){
 	$frequencyofvisit               = mysqli_real_escape_string($mysqli,$_POST['frequencyofvisit']);
 	}
 	
+
+
+	if (isset($_POST['subgroup'])) {
+		$subgroup             = mysqli_real_escape_string($mysqli,$_POST['subgroup']);
+	   }
+
+	   if (isset($_POST['group'])) {
+		$group             = mysqli_real_escape_string($mysqli,$_POST['group']);
+	   }
+
+	   if (isset($_POST['ledgername'])) {
+		$ledgername             = mysqli_real_escape_string($mysqli,$_POST['ledgername']);
+	   }
+
+
+
 	if(isset($_POST['status']) &&    $_POST['status'] == 'Yes')		
 	{
 		$status=0;
@@ -1824,9 +1919,25 @@ public function updatecustomer($mysqli,$id){
  anniverserydate="'.strip_tags($anniverserydate).'", 
  emailid="'.strip_tags($emailid).'" ,
  needmembership="'.strip_tags($needmembership).'" ,
+
+
+ gstno="'.strip_tags($gstno).'" ,	
+ contactpersion="'.strip_tags($contactpersion).'" ,
+ address1="'.strip_tags($address1).'" ,	
+ address2="'.strip_tags($address2).'", 
+ pincode="'.strip_tags($pincode).'" ,
+ state="'.strip_tags($state).'" ,
+
+
+
  typeofcustomer="'.strip_tags($typeofcustomer).'" ,
  noofvisit="'.strip_tags($noofvisit).'" ,
  frequencyofvisit="'.strip_tags($frequencyofvisit).'" ,
+
+ typeofcustomer="'.strip_tags($typeofcustomer).'", 
+ noofvisit="'.strip_tags($noofvisit).'" ,
+ frequencyofvisit="'.strip_tags($frequencyofvisit).'" ,
+
  status="'.$status.'" WHERE customerid="'.mysqli_real_escape_string($mysqli,$id).'"';  
 
 $res =$mysqli->query($updateQry)or die("Error in in update Query!.".$mysqli->error); 
@@ -1851,9 +1962,22 @@ public function getcustomer($mysqli,$idupd)
 		$detailrecords['anniverserydate']                    = strip_tags($row->anniverserydate);	
 		$detailrecords['emailid']       	           = strip_tags($row->emailid);
 		$detailrecords['needmembership']       	       = strip_tags($row->needmembership);
+
+		$detailrecords['gstno']       	           = strip_tags($row->gstno);
+		$detailrecords['contactpersion']       	           = strip_tags($row->contactpersion);
+		$detailrecords['address1']                   = strip_tags($row->address1);		  	
+		$detailrecords['address2']                    = strip_tags($row->address2);	
+		$detailrecords['pincode']       	           = strip_tags($row->pincode);
+		$detailrecords['state']       	       = strip_tags($row->state);
+
 		$detailrecords['typeofcustomer']              = strip_tags($row->typeofcustomer);		  	
 		$detailrecords['noofvisit']             = strip_tags($row->noofvisit);	
 		$detailrecords['frequencyofvisit']       	       = strip_tags($row->frequencyofvisit);
+
+		$detailrecords['subgroup']              = strip_tags($row->subgroup);		  	
+		$detailrecords['group']             = strip_tags($row->group);	
+		$detailrecords['ledgername']       	       = strip_tags($row->ledgername);
+
 		$detailrecords['status']                    = strip_tags($row->status);		
 
 	}

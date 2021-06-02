@@ -235,6 +235,184 @@ $(document).ready(function () {
                frequencyofvisiterror = true;
              }
            }
+
+
+           $('#gstno').keyup(function () {
+            this.value = this.value.toUpperCase();
+        });
+        function GSTCheck() {
+            var regex2 = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([a-zA-Z0-9]){1}?$/; //this is the pattern of GST No expersion
+            var a = document.getElementById('gstno').value;
+            if (a != null && a != "") {
+                if (regex2.test(a) == false) {
+                    $("#gstnocheck").show();
+                    $("#gstno").val('');
+                    return false;
+                }
+                else {
+                    $("#gstnocheck").hide();
+                }
+            }
+        }
+
+   //gstno
+   $("#gstnocheck").hide();
+   let gstnoerror = true;
+   $("#gstno").keyup(function () {
+     gstno();
+   });
+   function gstno() {
+     let gstnoValue = $("#gstno").val();
+     if (gstnoValue == "") {
+       $("#gstnocheck").show();
+       gstnoerror = false;
+       return false;
+     } else {
+       $("#gstnocheck").hide();
+       gstnoerror = true;
+     }
+   }
+
+
+   //contactpersion
+   $("#contactpersioncheck").hide();
+   let contactpersionerror = true;
+   $("#contactpersion").keyup(function () {
+     contactpersion();
+   });
+   function contactpersion() {
+     let contactpersionValue = $("#contactpersion").val();
+     if (contactpersionValue == "") {
+       $("#contactpersioncheck").show();
+       contactpersionerror = false;
+       return false;
+     } else {
+       $("#contactpersioncheck").hide();
+       contactpersionerror = true;
+     }
+   }
+   
+
+
+     //address1
+     $("#address1check").hide();
+     let address1error = true;
+     $("#address1").keyup(function () {
+       address1();
+     });
+     function address1() {
+       let address1Value = $("#address1").val();
+       if (address1Value == "") {
+         $("#address1check").show();
+         address1error = false;
+         return false;
+       } else {
+         $("#address1check").hide();
+         address1error = true;
+       }
+     }
+
+
+       //address2
+       $("#address2check").hide();
+       let address2error = true;
+       $("#address2").keyup(function () {
+         address2();
+       });
+       function address2() {
+         let address2Value = $("#address2").val();
+         if (address2Value == "") {
+           $("#address2check").show();
+           address2error = false;
+           return false;
+         } else {
+           $("#address2check").hide();
+           address2error = true;
+         }
+       }
+
+
+       
+
+       //pincode
+       $("#pincodecheck").hide();
+       let pincodeerror = true;
+       $("#pincode").keyup(function () {
+         pincode();
+       });
+       function pincode() {
+         let pincodeValue = $("#pincode").val();
+         if (pincodeValue == "") {
+           $("#pincodecheck").show();
+           pincodeerror = false;
+           return false;
+         } else {
+           $("#pincodecheck").hide();
+           pincodeerror = true;
+         }
+       }
+
+
+
+
+        //state
+        $("#statecheck").hide();
+        let stateerror = true;
+        $("#state").keyup(function () {
+          state();
+        });
+        function state() {
+          let stateValue = $("#state").val();
+          if (stateValue == "") {
+            $("#statecheck").show();
+            stateerror = false;
+            return false;
+          } else {
+            $("#statecheck").hide();
+            stateerror = true;
+          }
+        }
+
+
+        
+        //subgroup
+        $("#subgroupcheck").hide();
+        let subgrouperror = true;
+        $("#subgroup").keyup(function () {
+          subgroup();
+        });
+        function subgroup() {
+          let subgroupValue = $("#subgroup").val();
+          if (subgroupValue == "") {
+            $("#subgroupcheck").show();
+            subgrouperror = false;
+            return false;
+          } else {
+            $("#subgroupcheck").hide();
+            subgrouperror = true;
+          }
+        }
+
+
+         //group
+         $("#groupcheck").hide();
+         let grouperror = true;
+         $("#group").keyup(function () {
+           group();
+         });
+         function group() {
+           let groupValue = $("#group").val();
+           if (groupValue == "") {
+             $("#groupcheck").show();
+             grouperror = false;
+             return false;
+           } else {
+             $("#groupcheck").hide();
+             grouperror = true;
+           }
+         }
+
+
   // Validate email
   $("#emailidcheck").hide();
   let emailiderror = true;

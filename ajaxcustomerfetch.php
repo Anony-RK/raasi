@@ -13,9 +13,21 @@ $column = array(
     'anniverserydate',
     'emailid',    
 	'needmembership',
+
+    'gstno',
+    'contactpersion',
+    'address1',
+    'address2',
+    'pincode',    
+	'state',
+
 	'typeofcustomer',
     'noofvisit', 
     'frequencyofvisit', 
+
+    'subgroup',
+    'group', 
+    'ledgername',
     
 	'status'
 );
@@ -49,9 +61,22 @@ else{
  OR anniverserydate LIKE '%".$_POST['search']."%'
  OR emailid LIKE '%".$_POST['search']."%'
  OR needmembership LIKE '%".$_POST['search']."%'
+
+ OR gstno LIKE '%".$_POST['search']."%'
+ OR contactpersion LIKE '%".$_POST['search']."%'
+ OR address1 LIKE '%".$_POST['search']."%'
+ OR address2 LIKE '%".$_POST['search']."%'
+ OR pincode LIKE '%".$_POST['search']."%'
+ OR state LIKE '%".$_POST['search']."%'
+
+
  OR typeofcustomer LIKE '%".$_POST['search']."%'
  OR noofvisit LIKE '%".$_POST['search']."%'
  OR frequencyofvisit LIKE '%".$_POST['search']."%'
+
+ OR subgroup LIKE '%".$_POST['search']."%'
+ OR group LIKE '%".$_POST['search']."%'
+ OR ledgername LIKE '%".$_POST['search']."%'
  ";
 }
 }
@@ -96,9 +121,22 @@ foreach ($result as $row) {
     $sub_array[] = $row['anniverserydate'];
     $sub_array[] = $row['emailid'];
     $sub_array[] = $row['needmembership'];
+
+    $sub_array[] = $row['gstno'];
+    $sub_array[] = $row['contactpersion'];  
+    $sub_array[] = $row['address1'];
+    $sub_array[] = $row['address2'];
+    $sub_array[] = $row['pincode'];
+    $sub_array[] = $row['state'];
+
     $sub_array[] = $row['typeofcustomer'];
     $sub_array[] = $row['noofvisit'];
     $sub_array[] = $row['frequencyofvisit'];
+
+    $sub_array[] = $row['subgroup'];
+    $sub_array[] = $row['group'];
+    $sub_array[] = $row['ledgername'];
+
     $status      = $row['status'];
     if($status==1)
 	{
