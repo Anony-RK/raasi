@@ -36,7 +36,7 @@
 <div class="container">
 <div class="card">
 	<div class="card-header">
-		Item Bulk Upload
+		Tax Bulk Upload
 	</div>
 <form action="" method="post" enctype="multipart/form-data">
 <div class="card-body">
