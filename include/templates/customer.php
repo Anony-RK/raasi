@@ -68,7 +68,7 @@ if($idupd>0)
 
             $subgroup          = $getcustomer['subgroup'];
             $group          = $getcustomer['group'];
-            $subgroup          = $getcustomer['ledgername'];
+            $ledgername          = $getcustomer['ledgername'];
 
 
             $status	    		     = $getcustomer['status'];
@@ -118,8 +118,8 @@ if($idupd>0)
                               <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label >Customer ID</label>
-                                                <input type="text" tabindex="1" class="form-control" id="customerid" name="customerid" value="<?php if(isset($customername )) echo $customername ; ?>" placeholder="Enter Customer Name">
-                                                <label id="customeridcheck" class="text-danger">Enter Customer ID</label>
+                                                <input type="text" tabindex="1" readonly class="form-control" id="customerid" name="customerid" value="<?php if(isset($customerid )) echo $customerid ; ?>" >
+                                                <!-- <label id="customeridcheck" class="text-danger">Enter Customer ID</label> -->
 
                                             </div>
                                         </div>
@@ -356,12 +356,7 @@ if($idupd>0)
                                     <label id="frequencyofvisitcheck" class="text-danger">Enter Frequency OF Visit</label>           
                                 </div>
                             </div>
-                        <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
-                            <div class="custom-control custom-checkbox mt-4">
-                                <input type="checkbox" tabindex="70" value="Yes"  <?php if($status==0){echo'checked';}?> tabindex="16"  class="custom-control-input" id="status" name="status">
-                                <label class="custom-control-label" for="status">Status</label>
-                            </div><br /><br />
-                        </div>
+                      
 
 
                     
@@ -432,6 +427,12 @@ if($idupd>0)
                                         <!-- <label id="frequencyofvisitcheck" class="text-danger">Enter Frequency OF Visit</label>            -->
                                     </div>
                                 </div>
+                                <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
+                            <div class="custom-control custom-checkbox mt-4">
+                                <input type="checkbox" tabindex="70" value="Yes"  <?php if($status==0){echo'checked';}?> tabindex="16"  class="custom-control-input" id="status" name="status">
+                                <label class="custom-control-label" for="status">Status</label>
+                            </div><br /><br />
+                        </div>
                          </div>
                         </div>
                  </div>

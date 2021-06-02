@@ -499,3 +499,17 @@ function customerBulkupload(){
       }
     }
     }
+
+
+    function customers() {
+      var customername = '';
+      // var cess = 0;
+      
+      if ($("#customername").val() != "" && $("#customername").val() != null) {
+         
+        customername = parseFloat($("#customername").val());
+          
+          
+      }
+      $("#ledgername").val(tot);
+    }
