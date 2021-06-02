@@ -142,6 +142,18 @@ if($idupd>0)
 
 
 
+
+
+<div>
+<div id="BulkUploadModal" class="modal">
+  <div class="modal-content">
+    <span class="bulkclose" style="width:4%;">&times;</span>
+  <iframe src="taxuploadbulk.php" height="200px"></iframe>
+  </div>
+</div>
+</div>
+
+
 <hr>
                               <div class="row">
                                    
@@ -204,6 +216,9 @@ if($idupd>0)
 
 
                           </div>
+
+                          
+
                       <!-- </div> -->
                 
                         <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
@@ -214,11 +229,11 @@ if($idupd>0)
                         </div>
       
                   <div class="row">
-					   <div class="col-md-2 d-flex" > 
-						<button type="button hidden" id="customerdownload" name="customerdownload" tabindex="71" class="btn btn-primary mb-2"><span class="icon-download"></span>Download</button>
-						<button type="file hidden" id="cuustomerupload" name="customerupload" onclick="customerBulkupload()" tabindex="72" class="btn btn-primary mb-2 ml-2"><span class="icon-upload"></span>Upload</button>
+					   <div class="col-md-4 d-flex" > 
+						<button type="button" id="customerdownload" name="customerdownload" tabindex="71" class="btn btn-primary mb-2"><span class="icon-download"></span>Download</button>
+                        <button onclick="taxBulkupload()" tabindex="27" type="button" id="itembulkupload" name="itembulkupload" class="btn btn-primary  itembutton form-control" ><span class="icon-upload"></span> &nbsp Upload</button><br /><br />
 					   </div>
-					        <div class="col-md-2"> </div>
+					        <!-- <div class="col-md-2"> </div> -->
                             <div class="col-md-2"></div>
                             <div class="col-md-2"></div>
                             <div class="col-md-2"></div>

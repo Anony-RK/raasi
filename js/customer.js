@@ -305,7 +305,7 @@ $("#employeedownload").click(function () {
 });
 
 
-function EmployeeBulkupload(){
+function customerBulkupload(){
     var modal = document.getElementById("EmpBulkUploadModal");
     var btn = document.getElementById("employeeupload");
     var span = document.getElementsByClassName("bulkclose")[0];

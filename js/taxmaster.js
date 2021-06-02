@@ -173,3 +173,19 @@ $("#addl").keyup(function () {
 
 });
 
+function taxBulkupload(){
+  var modal = document.getElementById("BulkUploadModal");
+  var btn = document.getElementById("itembulkupload");
+  var span = document.getElementsByClassName("bulkclose")[0];
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  }
