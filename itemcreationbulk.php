@@ -86,7 +86,7 @@
 
 		<script type="text/javascript">
 		$(document).on("click", "#submititembulkbtn", function () {
-		alert("I came here");
+		// alert("I came here");
 		var itemexcel=$("#itemcreationbulk").val();
 			$.ajax({
             url: 'ajaxitembulkupload.php',

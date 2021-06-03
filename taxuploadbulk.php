@@ -46,7 +46,7 @@
 </div>
 <div class="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-12">
 <div class="form-group">
-<div id="insertsuccess">insert success</div>
+<div id="insertsuccess"></div>
 <label class="label">Select Excel</label>
 <input type="file" name="taxbulk" id="taxbulk" class="form-control">
 </div>
