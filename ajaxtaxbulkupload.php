@@ -6,9 +6,9 @@ if (isset($_POST["taxexcel"]))
 {
 $allowedFileType = ['application/vnd.ms-excel','text/xls','text/xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
   
-if(in_array($_FILES["file"]["type"],$allowedFileType)){
-	 $targetPath = 'uploads/bulkimport/'.$_FILES['file']['name'];
-        move_uploaded_file($_FILES['file']['tmp_name'], $targetPath);
+if(in_array($_FILES["taxbulk"]["type"],$allowedFileType)){
+	 $targetPath = 'uploads/bulkimport/'.$_FILES['taxbulk']['name'];
+        move_uploaded_file($_FILES['taxbulk']['tmp_name'], $targetPath);
         $Reader = new SpreadsheetReader($targetPath);
         $sheetCount = count($Reader->sheets());
         for($i=0;$i<$sheetCount;$i++)

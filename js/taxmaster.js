@@ -135,6 +135,9 @@ $(document).ready(function () {
   });
 
 
+  $("#customerdownload").click(function () {
+		window.location.href='uploads/downloadfiles/taxmaster.xlsx'
+	});
 
 
 //Tax Calculation
@@ -175,7 +178,7 @@ $("#addl").keyup(function () {
 
 function taxBulkupload(){
   var modal = document.getElementById("BulkUploadModal");
-  var btn = document.getElementById("itembulkupload");
+  var btn = document.getElementById("taxbulkupload");
   var span = document.getElementsByClassName("bulkclose")[0];
   btn.onclick = function() {
     modal.style.display = "block";
