@@ -45,7 +45,7 @@ if($idupd>0)
             $customername            = $getcustomer['customername'];
 			$gender                	 = $getcustomer['gender'];
 			$dateofbirth      	     = $getcustomer['dateofbirth'];
-            $customerimage     	     = $getcustomer['customerimage'];
+            $img = $customerimage     	     = $getcustomer['customerimage'];
             $age      			     = $getcustomer['age'];
 			$mobilenumber       	 = $getcustomer['mobilenumber'];
 			$whatsappnumber          = $getcustomer['whatsappnumber'];
@@ -297,11 +297,11 @@ if($idupd>0)
                                    <div class="col-md-4"><br />
                                    <div class="col-xl-12 col-lglg-4 col-md-6 col-sm-6 col-12 mx-auto">
                                             <div class="form-group" style="margin: auto;"> 
-                                            <img src="img/profile-pic.jpg" width="43%" id="viewimage" >
+                                            <img src="img/profile-pic.jpg" width="43%" id="viewimage" value="uploads/customerimage/<?php $img ?>" >
                                             <input type="file" tabindex="7"  class="form-control" 
                                             accept="image/*" onchange="loadFile(event)"  
                                             id="customerimage" name="customerimage" style="width:43%"
-                                            value="<?php if(isset($customerimage )) echo $customerimage ; ?>">
+                                            value="<?php if(isset($img )) echo $img ; ?>">
                                             </div>
 
                                         </div>
@@ -442,7 +442,7 @@ if($idupd>0)
             <div class="row">
 					   <div class="col-md-2 d-flex" > 
 						<button type="button" id="customerdownload" name="customerdownload" tabindex="71" class="btn btn-primary mb-2"><span class="icon-download"></span>Download</button>
-						<button type="file" id="cuustomerupload" name="customerupload" onclick="customerBulkupload()" tabindex="72" class="btn btn-primary mb-2 ml-2"><span class="icon-upload"></span>Upload</button>
+						<button type="file" id="customerupload" name="customerupload" onclick="customerBulkupload()" tabindex="72" class="btn btn-primary mb-2 ml-2"><span class="icon-upload"></span>Upload</button>
 					   </div>
 					        <div class="col-md-2"> </div>
                             <div class="col-md-2"></div>

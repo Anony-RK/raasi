@@ -135,7 +135,7 @@ $(document).ready(function () {
   });
 
 
-  $("#customerdownload").click(function () {
+  $("#taxdownload").click(function () {
 		window.location.href='uploads/downloadfiles/taxmaster.xlsx'
 	});
 

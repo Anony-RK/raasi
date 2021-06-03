@@ -1970,7 +1970,7 @@ public function getcustomer($mysqli,$idupd)
 		$detailrecords['customername']       	       = strip_tags($row->customername);
 		$detailrecords['gender']       	       = strip_tags($row->gender);
 		$detailrecords['dateofbirth']                  = strip_tags($row->dateofbirth);		  	
-		$detailrecords['customerimage']             = strip_tags($row->customerimage);
+		$img = $detailrecords['customerimage']             = strip_tags($row->customerimage);
 		$detailrecords['age']       	           = strip_tags($row->age);
 		$detailrecords['mobilenumber']       	           = strip_tags($row->mobilenumber);
 		$detailrecords['whatsappnumber']                   = strip_tags($row->whatsappnumber);		  	

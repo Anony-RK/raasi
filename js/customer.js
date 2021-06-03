@@ -434,6 +434,9 @@ $(document).ready(function () {
   }
 
 
+  $("#customerdownload").click(function () {
+		window.location.href='uploads/downloadfiles/customerformat.xlsx'
+	});
 
   $('#submitcustomer').click(function () {	
 	
