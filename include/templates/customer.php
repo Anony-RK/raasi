@@ -374,6 +374,15 @@ if($idupd>0)
                 </div>
                
              </div>
+             <div>
+<div id="BulkUploadModal" class="modal">
+  <div class="modal-content">
+    <span class="bulkclose" style="width:4%;">&times;</span>
+  <iframe src="customeruploadbulk.php" height="200px"></iframe>
+  </div>
+</div>
+</div>
+
       
              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
@@ -442,7 +451,7 @@ if($idupd>0)
             <div class="row">
 					   <div class="col-md-2 d-flex" > 
 						<button type="button" id="customerdownload" name="customerdownload" tabindex="71" class="btn btn-primary mb-2"><span class="icon-download"></span>Download</button>
-						<button type="file" id="customerupload" name="customerupload" onclick="customerBulkupload()" tabindex="72" class="btn btn-primary mb-2 ml-2"><span class="icon-upload"></span>Upload</button>
+						<button type="button" id="customerupload" name="customerupload" onclick="customerBulkupload()" tabindex="72" class="btn btn-primary mb-2 ml-2"><span class="icon-upload"></span>Upload</button>
 					   </div>
 					        <div class="col-md-2"> </div>
                             <div class="col-md-2"></div>

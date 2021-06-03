@@ -413,6 +413,26 @@ $(document).ready(function () {
          }
 
 
+             //group
+             $("#customeridcheck").hide();
+             let customeriderror = true;
+             $("#customerid").keyup(function () {
+               customerid();
+             });
+             function customerid() {
+               let customeridValue = $("#customerid").val();
+               if (customeridValue == "") {
+                 $("#customeridcheck").show();
+                 customeriderror = false;
+                 return false;
+               } else {
+                 $("#customeridcheck").hide();
+                 customeriderror = true;
+               }
+             }
+    
+
+
   // Validate email
   $("#emailidcheck").hide();
   let emailiderror = true;
@@ -439,7 +459,7 @@ $(document).ready(function () {
 	});
 
   $('#submitcustomer').click(function () {	
-	
+    customerid();
     customername();
     gender();
     dateofbirth();
@@ -454,6 +474,7 @@ $(document).ready(function () {
     validateemail();
     frequencyofvisit();
     if (customernameerror == true 
+      && customeriderror == true
         && gendererror == true 
         && dateofbirtherror == true 
         && ageerror == true 
@@ -487,8 +508,8 @@ $("#employeedownload").click(function () {
 
 
 function customerBulkupload(){
-    var modal = document.getElementById("EmpBulkUploadModal");
-    var btn = document.getElementById("employeeupload");
+    var modal = document.getElementById("BulkUploadModal");
+    var btn = document.getElementById("customerupload");
     var span = document.getElementsByClassName("bulkclose")[0];
     btn.onclick = function() {
       modal.style.display = "block";
