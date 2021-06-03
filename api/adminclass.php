@@ -1671,6 +1671,10 @@ public function addcustomer($mysqli)
 {
 	$date  = date('Y-m-d');
 
+	if (isset($_POST['customerid'])) {
+		$customerid             = mysqli_real_escape_string($mysqli,$_POST['customerid']);
+	   }
+
 	if (isset($_POST['customername'])) {
 	 $customername             = mysqli_real_escape_string($mysqli,$_POST['customername']);
 	}
@@ -1718,8 +1722,8 @@ public function addcustomer($mysqli)
 		if (isset($_POST['pincode'])) {
 		$pincode               = mysqli_real_escape_string($mysqli,$_POST['pincode']);		
 		}
-		if (isset($_POST['State'])) {
-		$State               = mysqli_real_escape_string($mysqli,$_POST['State']);		
+		if (isset($_POST['state'])) {
+		$state               = mysqli_real_escape_string($mysqli,$_POST['state']);		
 		}
 		
 
@@ -1739,8 +1743,8 @@ public function addcustomer($mysqli)
 		$subgroup             = mysqli_real_escape_string($mysqli,$_POST['subgroup']);
 	   }
 
-	   if (isset($_POST['group'])) {
-		$group             = mysqli_real_escape_string($mysqli,$_POST['group']);
+	   if (isset($_POST['groups'])) {
+		$groups             = mysqli_real_escape_string($mysqli,$_POST['groups']);
 	   }
 
 	   if (isset($_POST['ledgername'])) {
@@ -1762,12 +1766,13 @@ $customerimage_tmp = $_FILES['customerimage']['tmp_name'];
 $customerimagefolder="uploads/customerimage/".$customerimage ;
 move_uploaded_file($customerimage_tmp, $customerimagefolder);
 
-	$qry = "INSERT INTO customer(customername, gender, dateofbirth,
-	 employeeimage, age, mobilenumber, whatsappnumber,
+	$qry = "INSERT INTO customer(customerid , customername, gender, dateofbirth,
+	 customerimage, age, mobilenumber, whatsappnumber,
 	 anniverserydate, emailid, needmembership,gstno, contactpersion, address1,
-	 address2, pincode, state,
-	 typeofcustomer, noofvisit, frequencyofvisit,subgroup,group,ledgername,status) 
+	 address2, pincode, state,typeofcustomer,
+	  noofvisit, frequencyofvisit,subgroup,groups,ledgername,status) 
 	VALUES (
+		'".strip_tags($customerid)."',
 	'".strip_tags($customername)."',
 	'".strip_tags($gender)."',
 	'".strip_tags($dateofbirth)."',
@@ -1794,7 +1799,7 @@ move_uploaded_file($customerimage_tmp, $customerimagefolder);
 
 
 	'".strip_tags($subgroup)."',
-	'".strip_tags($group)."',
+	'".strip_tags($groups)."',
 	'".strip_tags($ledgername)."',
 
 	'".strip_tags($status)."');";		
@@ -1809,14 +1814,16 @@ move_uploaded_file($customerimage_tmp, $customerimagefolder);
 public function deletecustomer($mysqli,$id) 
 {
 	$date  = date('Y-m-d'); 
-	$qry = 'UPDATE  customer  SET status="1"  WHERE customerid="'.mysqli_real_escape_string($mysqli,$id).'"'; 
+	$qry = 'UPDATE  customer  SET status="1"  WHERE customid="'.mysqli_real_escape_string($mysqli,$id).'"'; 
 	$res =$mysqli->query($qry)or die("Error in delete query".$mysqli->error);	
 }
 
 public function updatecustomer($mysqli,$id){
 
 	$date  = date('Y-m-d');
-
+	if (isset($_POST['customerid'])) {
+		$customerid            = mysqli_real_escape_string($mysqli,$_POST['customerid']);
+	   }
 	if (isset($_POST['customername'])) {
 	 $customername             = mysqli_real_escape_string($mysqli,$_POST['customername']);
 	}
@@ -1826,8 +1833,8 @@ public function updatecustomer($mysqli,$id){
 	if (isset($_POST['dateofbirth'])) {
 	$dateofbirth               = mysqli_real_escape_string($mysqli,$_POST['dateofbirth']);		
 	}
-	if (isset($_POST['employeeimage'])) {
-	$employeeimage               = mysqli_real_escape_string($mysqli,$_POST['employeeimage']);		
+	if (isset($_POST['customerimage'])) {
+	$customerimage               = mysqli_real_escape_string($mysqli,$_POST['customerimage']);		
 	}
 	if (isset($_POST['age'])) {
 	 $age             = mysqli_real_escape_string($mysqli,$_POST['age']);
@@ -1866,8 +1873,8 @@ public function updatecustomer($mysqli,$id){
 		if (isset($_POST['pincode'])) {
 		$pincode               = mysqli_real_escape_string($mysqli,$_POST['pincode']);		
 		}
-		if (isset($_POST['State'])) {
-		$State               = mysqli_real_escape_string($mysqli,$_POST['State']);		
+		if (isset($_POST['state'])) {
+		$state               = mysqli_real_escape_string($mysqli,$_POST['state']);		
 		}
 
 
@@ -1888,8 +1895,8 @@ public function updatecustomer($mysqli,$id){
 		$subgroup             = mysqli_real_escape_string($mysqli,$_POST['subgroup']);
 	   }
 
-	   if (isset($_POST['group'])) {
-		$group             = mysqli_real_escape_string($mysqli,$_POST['group']);
+	   if (isset($_POST['groups'])) {
+		$groups             = mysqli_real_escape_string($mysqli,$_POST['groups']);
 	   }
 
 	   if (isset($_POST['ledgername'])) {
@@ -1909,10 +1916,11 @@ public function updatecustomer($mysqli,$id){
 
 
  $updateQry = 'UPDATE  customer  SET 
+ customerid="'.strip_tags($customerid).'" ,
  customername="'.strip_tags($customername).'" ,
  gender="'.strip_tags($gender).'" ,
  dateofbirth="'.strip_tags($dateofbirth).'" ,
- employeeimage="'.strip_tags($employeeimage).'" ,	
+ customerimage="'.strip_tags($customerimage).'" ,	
  age="'.strip_tags($age).'" ,	
  mobilenumber="'.strip_tags($mobilenumber).'" ,
  whatsappnumber="'.strip_tags($whatsappnumber).'" ,	
@@ -1928,34 +1936,41 @@ public function updatecustomer($mysqli,$id){
  pincode="'.strip_tags($pincode).'" ,
  state="'.strip_tags($state).'" ,
 
-
-
- typeofcustomer="'.strip_tags($typeofcustomer).'" ,
- noofvisit="'.strip_tags($noofvisit).'" ,
- frequencyofvisit="'.strip_tags($frequencyofvisit).'" ,
-
  typeofcustomer="'.strip_tags($typeofcustomer).'", 
  noofvisit="'.strip_tags($noofvisit).'" ,
  frequencyofvisit="'.strip_tags($frequencyofvisit).'" ,
 
+ subgroup="'.strip_tags($subgroup).'" ,
+ groups="'.strip_tags($groups).'" ,
+ ledgername="'.strip_tags($ledgername).'" ,
+
+
+
  status="'.$status.'" WHERE customerid="'.mysqli_real_escape_string($mysqli,$id).'"';  
+
+ // Customer Image Upload
+$customerimage = $_FILES['customerimage']['name'];
+$customerimage_tmp = $_FILES['customerimage']['tmp_name'];
+$customerimagefolder="uploads/customerimage/".$customerimage ;
+move_uploaded_file($customerimage_tmp, $customerimagefolder);
 
 $res =$mysqli->query($updateQry)or die("Error in in update Query!.".$mysqli->error); 
 }
 
 public function getcustomer($mysqli,$idupd)
 {
-	$qry = "SELECT * FROM customer WHERE customerid='".mysqli_real_escape_string($mysqli,$idupd)."'"; 
+	$qry = "SELECT * FROM customer WHERE customid='".mysqli_real_escape_string($mysqli,$idupd)."'"; 
 	$res =$mysqli->query($qry)or die("Error in Get All Records".$mysqli->error);
 	$detailrecords = array();
 	if ($mysqli->affected_rows>0)
 	{
 		$row = $res->fetch_object();	
-		$detailrecords['customerid']                    = $row->customerid; 
+		$detailrecords['customid']                    = $row->customid; 
+		$detailrecords['customerid']                    = strip_tags($row->customerid); 
 		$detailrecords['customername']       	       = strip_tags($row->customername);
 		$detailrecords['gender']       	       = strip_tags($row->gender);
 		$detailrecords['dateofbirth']                  = strip_tags($row->dateofbirth);		  	
-		$detailrecords['employeeimage']             = strip_tags($row->employeeimage);		
+		$detailrecords['customerimage']             = strip_tags($row->customerimage);
 		$detailrecords['age']       	           = strip_tags($row->age);
 		$detailrecords['mobilenumber']       	           = strip_tags($row->mobilenumber);
 		$detailrecords['whatsappnumber']                   = strip_tags($row->whatsappnumber);		  	
@@ -1975,10 +1990,13 @@ public function getcustomer($mysqli,$idupd)
 		$detailrecords['frequencyofvisit']       	       = strip_tags($row->frequencyofvisit);
 
 		$detailrecords['subgroup']              = strip_tags($row->subgroup);		  	
-		$detailrecords['group']             = strip_tags($row->group);	
+		$detailrecords['groups']             = strip_tags($row->groups);	
 		$detailrecords['ledgername']       	       = strip_tags($row->ledgername);
 
 		$detailrecords['status']                    = strip_tags($row->status);		
+
+
+		
 
 	}
 	return $detailrecords;

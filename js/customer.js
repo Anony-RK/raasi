@@ -502,7 +502,7 @@ function customerBulkupload(){
 
 
     function customers() {
-      var customername = '';
+      // var customername = '';
       // var cess = 0;
       
       if ($("#customername").val() != "" && $("#customername").val() != null) {
@@ -511,5 +511,5 @@ function customerBulkupload(){
           
           
       }
-      $("#ledgername").val(tot);
+      $("#ledgername").val(customername);
     }

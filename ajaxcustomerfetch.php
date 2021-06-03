@@ -3,10 +3,11 @@
 include('ajaxconfig.php');
 
 $column = array(
+    'customerid',
     'customername',
     'gender',
     'dateofbirth',
-    'employeeimage',
+    'customerimage',
     'age',
     'mobilenumber',
     'whatsappnumber',
@@ -26,7 +27,7 @@ $column = array(
     'frequencyofvisit', 
 
     'subgroup',
-    'group', 
+    'groups', 
     'ledgername',
     
 	'status'
@@ -51,10 +52,11 @@ else if($_POST['search']=="Inactive")
 
 else{	
    $query .= "
+   and customerid LIKE  '%".$_POST['search']."%'
  and customername LIKE  '%".$_POST['search']."%'
  OR gender LIKE '%".$_POST['search']."%'
  OR dateofbirth LIKE '%".$_POST['search']."%'
- OR employeeimage LIKE '%".$_POST['search']."%'
+ OR customerimage LIKE '%".$_POST['search']."%'
  OR age LIKE '%".$_POST['search']."%'
  OR mobilenumber LIKE '%".$_POST['search']."%'
  OR whatsappnumber LIKE '%".$_POST['search']."%'
@@ -75,7 +77,7 @@ else{
  OR frequencyofvisit LIKE '%".$_POST['search']."%'
 
  OR subgroup LIKE '%".$_POST['search']."%'
- OR group LIKE '%".$_POST['search']."%'
+ OR groups LIKE '%".$_POST['search']."%'
  OR ledgername LIKE '%".$_POST['search']."%'
  ";
 }
@@ -111,10 +113,11 @@ $data = array();
 
 foreach ($result as $row) {
     $sub_array   = array();
+    $sub_array[] = $row['customerid'];
     $sub_array[] = $row['customername'];
     $sub_array[] = $row['gender'];
     $sub_array[] = $row['dateofbirth'];
-    $sub_array[] = $row['employeeimage'];
+    $sub_array[] = $row['customerimage'];
     $sub_array[] = $row['age'];
     $sub_array[] = $row['mobilenumber'];  
     $sub_array[] = $row['whatsappnumber'];
@@ -134,7 +137,7 @@ foreach ($result as $row) {
     $sub_array[] = $row['frequencyofvisit'];
 
     $sub_array[] = $row['subgroup'];
-    $sub_array[] = $row['group'];
+    $sub_array[] = $row['groups'];
     $sub_array[] = $row['ledgername'];
 
     $status      = $row['status'];
@@ -146,7 +149,7 @@ foreach ($result as $row) {
 	{
     $sub_array[]="<span style='width: 144px;'><span class='kt-badge  kt-badge--success kt-badge--inline kt-badge--pill'>Active</span></span>";
 	}
-	$id          = $row['customerid'];
+	$id          = $row['customid'];
 	
 	$action="<a href='customer&upd=$id' title='Edit details'><span class='icon-border_color'></span></a>&nbsp;&nbsp; 
 	<a href='customer&del=$id' title='Edit details'><span class='icon-trash-2'></span></a>";

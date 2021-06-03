@@ -52,10 +52,11 @@ if($mscid==3)
 									<table id="customer_info" class="table custom-table">
 										<thead>
 											<tr>
-											  <th>Employee Name</th>
+											<th>Customer ID</th>
+											  <th>Customer Name</th>
 											  <th>Gender</th>
 											  <th>Date Of Birth</th>
-											  <th>Employee Image</th>
+											  <th>Customer Image</th>
 											  <th>Age</th>
 											  <th>Mobile Number</th>
 											  <th>Whatsapp Number</th>
@@ -71,6 +72,11 @@ if($mscid==3)
 											  <th>Type Of Customer</th>
 											  <th>No Of Visit</th>
 											  <th>Frequency Of Visit</th>
+
+											  <th>Sub Group</th>
+											  <th>Group</th>
+											  <th>Ledger Name</th>
+
 											  <th>Status</th>
 											  <th>Action</th>
 											</tr>

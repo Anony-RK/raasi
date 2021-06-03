@@ -1,6 +1,6 @@
 <?php 
 $id=0;
- if(isset($_POST['submitemployee']) && $_POST['submitemployee'] != '')
+ if(isset($_POST['submitcustomer']) && $_POST['submitcustomer'] != '')
  {
     if(isset($_POST['id']) && $_POST['id'] >0 && is_numeric($_POST['id'])){		
         $id = $_POST['id']; 	
@@ -40,11 +40,12 @@ if($idupd>0)
 	
 	if (sizeof($getcustomer)>0) {
         for($icustomer=0;$icustomer<sizeof($getcustomer);$icustomer++)  {	
+            $customid                = $getcustomer['customid'];
             $customerid              = $getcustomer['customerid'];
             $customername            = $getcustomer['customername'];
 			$gender                	 = $getcustomer['gender'];
 			$dateofbirth      	     = $getcustomer['dateofbirth'];
-            $employeeimage     	     = $getcustomer['employeeimage'];
+            $customerimage     	     = $getcustomer['customerimage'];
             $age      			     = $getcustomer['age'];
 			$mobilenumber       	 = $getcustomer['mobilenumber'];
 			$whatsappnumber          = $getcustomer['whatsappnumber'];
@@ -67,7 +68,7 @@ if($idupd>0)
 
 
             $subgroup          = $getcustomer['subgroup'];
-            $group          = $getcustomer['group'];
+            $groups          = $getcustomer['groups'];
             $ledgername          = $getcustomer['ledgername'];
 
 
@@ -99,7 +100,7 @@ if($idupd>0)
 
 <!--------form start-->
 <form id = "employee" name="customer" action="" method="post" enctype="multipart/form-data"> 
-<input type="hidden" class="form-control" value="<?php if(isset($customerid )) echo $customerid ; ?>"  id="id" name="id" aria-describedby="id" placeholder="Enter id">
+<input type="hidden" class="form-control" value="<?php if(isset($customid )) echo $customid ; ?>"  id="id" name="id" aria-describedby="id" placeholder="Enter id">
 
  		<!-- Row start -->
          <div class="row gutters">
@@ -118,8 +119,8 @@ if($idupd>0)
                               <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label >Customer ID</label>
-                                                <input type="text" tabindex="1" readonly class="form-control" id="customerid" name="customerid" value="<?php if(isset($customerid )) echo $customerid ; ?>" >
-                                                <!-- <label id="customeridcheck" class="text-danger">Enter Customer ID</label> -->
+                                                <input type="text" tabindex="1"  class="form-control" id="customerid" name="customerid" value="<?php if(isset($customerid )) echo $customerid ; ?>" >
+                                                <label id="customeridcheck" class="text-danger">Enter Customer ID</label>
 
                                             </div>
                                         </div>
@@ -221,7 +222,7 @@ if($idupd>0)
                                         <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Contact Persion</label>
-                                                <input type="email" tabindex="6" id="contactpersion" name="contactpersion" class="form-control" value="<?php if(isset($contactpersion )) echo $contactpersion ; ?>">
+                                                <input type="text" tabindex="6" id="contactpersion" name="contactpersion" class="form-control" value="<?php if(isset($contactpersion )) echo $contactpersion ; ?>">
                                                 <label id="contactpersioncheck" class="text-danger">Enter Contact Persion</label>
                                             </div>
                                         </div>
@@ -229,7 +230,7 @@ if($idupd>0)
                                         <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Address 1</label>
-                                                <input type="email" tabindex="6" id="address1" name="address1" class="form-control" value="<?php if(isset($address1 )) echo $address1 ; ?>">
+                                                <input type="text" tabindex="6" id="address1" name="address1" class="form-control" value="<?php if(isset($address1 )) echo $address1 ; ?>">
                                                 <label id="address1check" class="text-danger">Enter Address 1</label>
                                             </div>
                                         </div>
@@ -237,7 +238,7 @@ if($idupd>0)
                                         <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Address 2</label>
-                                                <input type="email" tabindex="6" id="address2" name="address2" class="form-control" value="<?php if(isset($address2 )) echo $address2 ; ?>">
+                                                <input type="text" tabindex="6" id="address2" name="address2" class="form-control" value="<?php if(isset($address2 )) echo $address2 ; ?>">
                                                 <label id="address2check" class="text-danger">Enter Address 2</label>
                                             </div>
                                         </div>
@@ -254,7 +255,7 @@ if($idupd>0)
                                         <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">State</label>                                               
-                                                <select class="form-control chosen-select comp-field " id="State" name="State"><option value="">Select a State...</option>
+                                                <select class="form-control chosen-select comp-field " id="state" name="state"><option value="">Select a State...</option>
                                                     <option <?php if(isset($state)) { if($state == "Andhra Pradesh" ) echo 'selected'; }  ?>  value="Andhra Pradesh">Andhra Pradesh</option>
                                                     <option <?php if(isset($state)) { if($state == "Arunachal Pradesh" ) echo 'selected'; }  ?>  value="Arunachal Pradesh">Arunachal Pradesh</option>
                                                     <option <?php if(isset($state)) { if($state == "Assam" ) echo 'selected'; }  ?>  value="Assam ">Assam </option>
@@ -296,10 +297,11 @@ if($idupd>0)
                                    <div class="col-md-4"><br />
                                    <div class="col-xl-12 col-lglg-4 col-md-6 col-sm-6 col-12 mx-auto">
                                             <div class="form-group" style="margin: auto;"> 
-                                            <img src="img/profile-pic.jpg" width="43%" id="viewimage">
+                                            <img src="img/profile-pic.jpg" width="43%" id="viewimage" >
                                             <input type="file" tabindex="7"  class="form-control" 
                                             accept="image/*" onchange="loadFile(event)"  
-                                            id="customerimage" name="customerimage" style="width:43%">
+                                            id="customerimage" name="customerimage" style="width:43%"
+                                            value="<?php if(isset($customerimage )) echo $customerimage ; ?>">
                                             </div>
 
                                         </div>
@@ -415,7 +417,7 @@ if($idupd>0)
                                 <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
                                 <div class="form-group">
                                         <label for="inputEmail">Group</label>
-                                        <input type="number" readonly tabindex="12" class="form-control" id="group" name="group"  value="<?php if(isset($group )) echo $group ; ?>">
+                                        <input type="text"  tabindex="12" class="form-control" id="group" name="groups"  value="<?php if(isset($groups )) echo $groups ; ?>">
                                         <!-- <label id="groupcheck" class="text-danger">Enter Frequency OF Visit</label>            -->
                                     </div>
                                 </div>
@@ -423,7 +425,7 @@ if($idupd>0)
                                 <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
                                 <div class="form-group">
                                         <label for="inputEmail">Ledger Name</label>
-                                        <input type="number" readonly tabindex="12" class="form-control" id="ledgername" name="ledgername"  value="<?php if(isset($ledgername )) echo $ledgername ; ?>">
+                                        <input type="text"  tabindex="12" class="form-control" id="ledgername" name="ledgername"  value="<?php if(isset($ledgername )) echo $ledgername ; ?>">
                                         <!-- <label id="frequencyofvisitcheck" class="text-danger">Enter Frequency OF Visit</label>            -->
                                     </div>
                                 </div>
@@ -448,7 +450,7 @@ if($idupd>0)
                             <div class="col-md-2"></div>
                             <div class="col-md-2">
 						
-							<button type="submit" name="submitemployee" id="submitcustomer" class="btn btn-primary" value="Submit" tabindex="73">Submit</button>
+							<button type="submit" name="submitcustomer" id="submitcustomer" class="btn btn-primary" value="Submit" tabindex="73">Submit</button>
 						    <button type="button" class="btn btn-outline-secondary" tabindex="74">Cancel</button>
 					  </div>
                       
