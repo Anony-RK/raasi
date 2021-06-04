@@ -11,14 +11,14 @@ $_POST['addl'] != '' && $_POST['total'] != '' )
         $id = $_POST['id']; 	
     $updatetaxmaster = $userObj->updatetaxmaster($mysqli,$id);  
     ?>
-   <script>location.href='<?php echo $HOSTPATH;  ?>edittaxmaster&msc=2';</script> 
+   <script>location.href='<?php echo $HOSTPATH;  ?>taxmaster&msc=2';</script> 
     <?php	}
     else{   
 		$addtaxmaster = $userObj->addtaxmaster($mysqli);   
         
         ?>
         
-     <script>location.href='<?php echo $HOSTPATH;  ?>edittaxmaster&msc=1';</script>
+     <script>location.href='<?php echo $HOSTPATH;  ?>taxmaster&msc=1';</script>
         <?php
     }
   }
@@ -34,7 +34,7 @@ if($del>0)
 {
 	$deletetaxmaster = $userObj->deletetaxmaster($mysqli,$del); 
 	?>
-	<script>location.href='<?php echo $HOSTPATH;  ?>edittaxmaster&msc=3';</script>
+	<script>location.href='<?php echo $HOSTPATH;  ?>taxmaster&msc=3';</script>
 <?php	
 }
 
@@ -78,7 +78,7 @@ if($idupd>0)
 					</ol>
 
 					<a href="edittaxmaster">
-					<button type="button" class="btn btn-primary"><span class="icon-border_color"></span>&nbsp Edit Tax Master</button>
+					<!-- <button type="button" class="btn btn-primary"><span class="icon-border_color"></span>&nbsp Edit Tax Master</button> -->
 					</a>
 
 				</div>
@@ -211,13 +211,81 @@ if($idupd>0)
 									
 									<div class="col-md-1">
 											<div class="form-group">
-												<button tabindex="24" type="button" onclick="addtaxtable()" class="form-control bluebutton"><span class="icon-add"></span></button>
+												<button tabindex="24" type="submit" onclick="cleartaxtable()" class="form-control bluebutton" style="background-color:#af772a; color:#fff;width:70px">Clear</button>
+                                                <!-- <span class="icon-add"></span> -->
 											</div>
 									</div>
 
-								</div>
+								</div><!--------TABLE CONTANT----------->
 
-								<div class="card-body row" style="overflow-x:auto;">
+                                <div class="container-fluid">
+
+					<!-- Row start -->
+					<div class="row gutters">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							
+
+							<div class="table-container">
+							
+								<div class="table-responsive">
+								<?php
+$mscid=0;
+if(isset($_GET['msc']))
+{
+$mscid=$_GET['msc'];
+if($mscid==1)
+{?>
+		<div class="alert alert-success" role="alert">
+                            <div class="alert-text">Tax Added Successfully!</div>
+                        </div> 
+<?php
+}
+if($mscid==2)
+{?>
+	<div class="alert alert-success" role="alert">
+	<div class="alert-text">Tax updated Successfully!</div>
+</div>
+<?php
+}
+if($mscid==3)
+{?>
+<div class="alert alert-danger" role="alert">
+                            <div class="alert-text">Tax Inactive Successfully!</div>
+                        </div>
+<?php
+}
+}
+?>
+									<table id="taxmaster_info" class="table custom-table">
+										<thead>
+											<tr>
+											 <th>Financial Year</th>
+											  <th>Classification</th>
+											  <th>Description</th>
+											  <th>Tax</th>
+											  <th>Cess</th>											 
+											  <th>Addl</th>
+											  <th>Total</th>											 
+											  <th>Status</th>
+											  <th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+										
+										</tbody>
+						    	</table>
+								</div>
+							</div>
+
+							
+						</div>
+					</div>
+					<!-- Row end -->
+
+				</div>
+				<!-- Main container end -->
+
+								<!-- <div class="card-body row" style="overflow-x:auto;">
 									<table id="taxtable" class="table-container stocktable table-responsive table custom-table">
 										<thead>
 											<tr>
@@ -232,18 +300,18 @@ if($idupd>0)
 												<th>Action</th>
 											</tr>
 										</thead>
-										<tbody></tbody>
-								<?php
-								if(isset($financialyear)){
-								$financialyear     =explode(',', $financialyear);
-								$classification     =explode(',', $classification);
-								$description       =explode(',', $description);
-								$tax      =explode(',', $tax);
-								$cess        =explode(',', $cess);
-								$addl=explode(',', $addl);
-								$total=explode(',', $total);
-								for($tab=0;$tab<=sizeof($financialyear)-1;$tab++){?>
-										<tbody>
+										<tbody></tbody> -->
+								<?php 
+								// if(isset($financialyear)){
+								// $financialyear     =explode(',', $financialyear);
+								// $classification     =explode(',', $classification);
+								// $description       =explode(',', $description);
+								// $tax      =explode(',', $tax);
+								// $cess        =explode(',', $cess);
+								// $addl=explode(',', $addl);
+								// $total=explode(',', $total);
+								// for($tab=0;$tab<=sizeof($financialyear)-1;$tab++){?>
+										<!-- <tbody>
 											<td><input type="text" name="financialyear[]" id="financialyear" class="form-control" value="<?php echo $financialyear[$tab]; ?>"></td>
 
 											<td><input type="text" name="classification[]" id="classification" class="form-control" value="<?php echo $classification[$tab]; ?>"></td>
@@ -260,10 +328,10 @@ if($idupd>0)
 											<td>
 												<a onclick='onUpdate(this)'><span class="icon-border_color"></span></a> &nbsp <a onclick='onDelete(this)'><span class='icon-trash-2'></span></a>
 											</td>
-										</tbody>
-								<?php }}?>
-									</table>
-								</div><br /><br />
+										</tbody> -->
+								<?php //}}?>
+									<!-- </table> -->
+								<!-- </div><br /><br /> -->
 
                                        <!------TABLE END---->
                                     </div>

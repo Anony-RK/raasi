@@ -357,3 +357,12 @@ function calculatetotalsellingprice() {
     parseInt(openingstock) * parseInt(tablesellingpriceperpc);
   document.getElementById("totalsellingprice").value = totalsellingprice;
 }
+function cleartaxtable() {
+  document.getElementById("financialyear").value ="";
+  document.getElementById("classification").value = "";
+  document.getElementById("description").value = "";
+  document.getElementById("tax").value = "";
+  document.getElementById("cess").value = "";
+  document.getElementById("addl").value = "";
+  document.getElementById("total").value = "";
+}
