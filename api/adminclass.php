@@ -1948,11 +1948,7 @@ public function updatecustomer($mysqli,$id){
 
  status="'.$status.'" WHERE customerid="'.mysqli_real_escape_string($mysqli,$id).'"';  
 
- // Customer Image Upload
-$customerimage = $_FILES['customerimage']['name'];
-$customerimage_tmp = $_FILES['customerimage']['tmp_name'];
-$customerimagefolder="uploads/customerimage/".$customerimage ;
-move_uploaded_file($customerimage_tmp, $customerimagefolder);
+
 
 $res =$mysqli->query($updateQry)or die("Error in in update Query!.".$mysqli->error); 
 }

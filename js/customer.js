@@ -506,6 +506,16 @@ $("#employeedownload").click(function () {
 
 });
 
+$("#typeofcustomers").each(function () {
+
+  if ($(this).val() != null && $(this).val() != "") {
+
+      StockCategoryListArray.push($(this).val());
+
+  }
+});
+$("#TypeofCustomer").val(StockCategoryListArray);
+
 
 function customerBulkupload(){
     var modal = document.getElementById("BulkUploadModal");

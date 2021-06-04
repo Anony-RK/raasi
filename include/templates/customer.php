@@ -1,6 +1,6 @@
 <?php 
 $id=0;
- if(isset($_POST['submitcustomer']) && $_POST['submitcustomer'] != '')
+ if(isset($_POST['submitcustomer']) )
  {
     if(isset($_POST['id']) && $_POST['id'] >0 && is_numeric($_POST['id'])){		
         $id = $_POST['id']; 	
@@ -334,12 +334,13 @@ if($idupd>0)
                             <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
                                 <div class="form-group">
                                     <label for="disabledInput">Type Of Customer</label>
+                                    <!-- <input id="TypeofCustomer" name="TypeofCustomer" type="hidden" value="" /> -->
                                     <select class="form-control" tabindex="3" id="typeofcustomer" name="typeofcustomer">     
                                       <option value=""> Select Type</option>
                                       <option <?php if(isset($typeofcustomer)) { if($typeofcustomer == "Regular" ) echo 'selected'; }  ?> value="Regular"> Regular</option>
                                       <option <?php if(isset($typeofcustomer)) { if($typeofcustomer == "New" ) echo 'selected'; }  ?> value="New"> New</option>
                                     </select>
-                                    <label id="typeofcustomercheck" class="text-danger">Type Of Customer</label>           
+                               <label id="typeofcustomercheck" class="text-danger">Type Of Customer</label>           
 
                                 </div>
                             </div>
