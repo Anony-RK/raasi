@@ -102,7 +102,7 @@ foreach ($result as $row) {
 
 function count_all_data($connect)
 {
-    $query     = 'SELECT * FROM taxmaster WHERE 1';
+    $query     = 'SELECT * FROM taxmaster';
     $statement = $connect->prepare($query);
     $statement->execute();
     return $statement->rowCount();
