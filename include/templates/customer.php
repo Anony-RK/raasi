@@ -443,12 +443,12 @@ if($idupd>0)
                                 <input type="checkbox" tabindex="70" value="Yes"  <?php if($status==0){echo'checked';}?> tabindex="16"  class="custom-control-input" id="status" name="status">
                                 <label class="custom-control-label" for="status">Status</label>
                             </div><br /><br />
+                       </div>
+
+                
+
                         </div>
-                         </div>
-                        </div>
-                 </div>
-      
-            <div class="row">
+                        <div class="row ">
 					   <div class="col-md-2 d-flex" > 
 						<button type="button" id="customerdownload" name="customerdownload" tabindex="71" class="btn btn-primary mb-2"><span class="icon-download"></span>Download</button>
 						<button type="button" id="customerupload" name="customerupload" onclick="customerBulkupload()" tabindex="72" class="btn btn-primary mb-2 ml-2"><span class="icon-upload"></span>Upload</button>
@@ -457,15 +457,18 @@ if($idupd>0)
                             <div class="col-md-2"></div>
                             <div class="col-md-2"></div>
                             <div class="col-md-2"></div>
-                            <div class="col-md-2">
-						
+                            <div class="col-md-2 d-flex">						
 							<button type="submit" name="submitcustomer" id="submitcustomer" class="btn btn-primary" value="Submit" tabindex="73">Submit</button>
 						    <button type="button" class="btn btn-outline-secondary" tabindex="74">Cancel</button>
 					  </div>
-                      
-                  
-                </div>
-
+                        
+                         </div>
+                         
+                        </div>
+                        
+                 </div>
+      
+           
             </div>
 
 

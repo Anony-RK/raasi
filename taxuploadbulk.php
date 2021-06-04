@@ -83,6 +83,16 @@
 
 		<!-- Slimscroll JS -->
 		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+		<script>
+  var modal = document.getElementById("BulkUploadModal");
+
+  var span = document.getElementsById("submittaxbulkbtn");
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+</script>
+
+
 
 		<script type="text/javascript">
 		$(document).on("click", "#submittaxbulkbtn", function () {

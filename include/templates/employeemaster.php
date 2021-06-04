@@ -628,7 +628,7 @@ if($idupd>0)
                         <div class="custom-control custom-checkbox mt-4">
 									<input type="checkbox" tabindex="70" value="Yes"  <?php if($status==0){echo'checked';}?> tabindex="16"  class="custom-control-input" id="status" name="status">
 										<label class="custom-control-label" for="status">Status</label>
-									</div><br /><br />
+							</div><br /><br />
 
                    <div class="row">
 					   <div class="col-md-2 d-flex" > 
