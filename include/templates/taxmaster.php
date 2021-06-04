@@ -18,7 +18,8 @@ $id=0;
     }
  }  
  
-$del=0;
+
+ $del=0;
 if(isset($_GET['del']))
 {
 $del=$_GET['del'];
@@ -30,6 +31,8 @@ if($del>0)
 	<script>location.href='<?php echo $HOSTPATH;  ?>edittaxmaster&msc=3';</script>
 <?php	
 }
+
+
 
 if(isset($_GET['upd']))
 {

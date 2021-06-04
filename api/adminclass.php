@@ -2065,13 +2065,15 @@ public function getcustomer($mysqli,$idupd)
   
 	  return $id; 
   }
-  
+
   public function deletetaxmaster($mysqli,$id) 
   {
 	  $date  = date('Y-m-d'); 
 	  $qry = 'UPDATE  taxmaster  SET status="1"  WHERE taxid="'.mysqli_real_escape_string($mysqli,$id).'"'; 
 	  $res =$mysqli->query($qry)or die("Error in delete query".$mysqli->error);	
   }
+  
+ 
   
   public function updatetaxmaster($mysqli,$id){
   
