@@ -13,37 +13,37 @@ $column = array(
 	'status'
 );
 
-$query = "SELECT * FROM taxmaster where 1  ";
+$query = "SELECT * FROM taxmaster WHERE 1  ";
 
-if(isset($_POST['search']) !="");
-{
-if (isset($_POST['search'])) {
+// if(isset($_POST['search']) !="");
+// {
+// if (isset($_POST['search'])) {
 
-	if(isset($_POST['search']) == "Active")
-{
-	$query .="and status=0 ";
+// 	if(isset($_POST['search']) == "Active")
+// {
+// 	$query .="and status=0 ";
 	
-}
-else if(isset($_POST['search']) =="Inactive")
-{
-	$query .="and status=1 ";
-}
+// }
+// else if(isset($_POST['search']) =="Inactive")
+// {
+// 	$query .="and status=1 ";
+// }
 
 
-else{	
-   $query .= "
- and financialyear LIKE  '%".$_POST['search']."%'
- OR classification LIKE '%".$_POST['search']."%'
- OR description LIKE '%".$_POST['search']."%'
- OR tax LIKE '%".$_POST['search']."%'
- OR cess LIKE '%".$_POST['search']."%'
- OR addl LIKE '%".$_POST['search']."%'
- OR total LIKE '%".$_POST['search']."%'
- ";
+// else{	
+//    $query .= "
+//  and financialyear LIKE  '%".$_POST['search']."%'
+//  OR classification LIKE '%".$_POST['search']."%'
+//  OR description LIKE '%".$_POST['search']."%'
+//  OR tax LIKE '%".$_POST['search']."%'
+//  OR cess LIKE '%".$_POST['search']."%'
+//  OR addl LIKE '%".$_POST['search']."%'
+//  OR total LIKE '%".$_POST['search']."%'
+//  ";
  
-}
-}
-}
+// }
+// }
+// }
 
 if (isset($_POST['order'])) {
     $query .= 'ORDER BY ' . $column[$_POST['order']['0']['column']] . ' ' . $_POST['order']['0']['dir'] . ' ';

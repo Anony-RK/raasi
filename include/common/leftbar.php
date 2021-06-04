@@ -64,7 +64,7 @@
 								</a>								
 							</li>
 							<li >
-								<a href="edittaxmaster">
+								<a href="taxmaster">
 									<i class="icon-users"></i>
 									<span class="">Tax Master</span>
 								</a>								

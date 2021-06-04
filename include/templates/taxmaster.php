@@ -102,19 +102,20 @@ if($idupd>0)
 					</div>
                     <div class="card-body">
 
-                    	 <div class="row ">
+                    	 <!-- <div class="row "> -->
                             <!--Fields -->
-                           <div class="col-md-12 "> 
+                           <!-- <div class="col-md-12 ">  -->
                               <div class="row">
                                    <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-12">
                                             
                                         </div>
-                                        <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 ml-4">
-                                            <div class="form-group d-flex align-items-center justify-content-around" >
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ml-4">
+                                            <div class="form-group d-flex  align-items-center justify-content-around" >
                                                 <label >Financial year <span class="text-danger">*</span></label>
-                                                <select class="form-control w-75" tabindex="3" id="financialyear" name="financialyear">
+                                                <div class="ml-4">
+                                                <select class="form-control " style="width:300px;" tabindex="3" id="financialyear" name="financialyear">
                                                 
-                                                <option value=""> Select financialyear</option>
+                                                <option value=""> Select Financial Year</option>
                                                 <option <?php if(isset($financialyear)) { if($financialyear == "2001-2002" ) echo 'selected'; }  ?> value="2001-2002"> 2001-2002</option>
                                                 <option <?php if(isset($financialyear)) { if($financialyear == "2002-2003" ) echo 'selected'; }  ?> value="2002-2003"> 2002-2003</option>
                                                 <option <?php if(isset($financialyear)) { if($financialyear == "2003-2004" ) echo 'selected'; }  ?> value="2003-2004"> 2003-2004</option>
@@ -138,16 +139,16 @@ if($idupd>0)
                                                 <option <?php if(isset($financialyear)) { if($financialyear == "2021-2022" ) echo 'selected'; }  ?> value="2021-2022"> 2021-2022</option>
                                                 <option <?php if(isset($financialyear)) { if($financialyear == "2022-2023" ) echo 'selected'; }  ?> value="2022-2023"> 2022-2023</option>
                                             </select>
-                                                <label id="financialyearcheck" class="text-danger">Enter Customer Name</label>
-
+                                                <label id="financialyearcheck" class="text-danger">Select Financial Year</label>
+                                             </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                             
                                         </div>  
                                     </div>
-                                </div>   
-                              </div>
+                                <!-- </div>   
+                              </div> -->
 
 
 
@@ -165,13 +166,6 @@ if($idupd>0)
 
 <hr>
                               <div class="row">
-                                   
-                                      
-                                     
-                                        
-                                      
-                                       <!---TABLE--->
-
 								<div class="row card-body">
 									<div class="col-md-2">
 											<div class="form-group">
@@ -211,7 +205,9 @@ if($idupd>0)
 									
 									<div class="col-md-1">
 											<div class="form-group">
-												<button tabindex="24" type="submit" onclick="cleartaxtable()" class="form-control bluebutton" style="background-color:#af772a; color:#fff;width:70px">Clear</button>
+												<!-- <button tabindex="24" type="submit" onclick="cleartaxtable()" class="form-control bluebutton" style="background-color:#af772a; color:#fff;width:70px">Clear</button> -->
+                                                <button type="submit" name="submittax" id="submittax" class="btn btn-primary"  tabindex="73">Save</button>
+
                                                 <!-- <span class="icon-add"></span> -->
 											</div>
 									</div>
@@ -353,29 +349,14 @@ if($mscid==3)
                             <div class="col-md-6"></div>
                             
                             <div class="col-md-2 d-flex">						
-							<button type="submit" name="submittax" id="submittax" class="btn btn-primary"  tabindex="73">Submit</button>
-						    <button type="button" class="btn btn-outline-secondary" tabindex="74">Cancel</button>
+							<!-- <button type="submit" name="submittax" id="submittax" class="btn btn-primary"  tabindex="73">Submit</button> -->
+						    
+                            <button type="button" class="btn btn-outline-secondary" tabindex="74">Cancel</button>
 					        </div>
-                      
-                    </div>
-
-
-
-
-
-                                </div>  
-
-
-                       
-                          
-
-                
-                  
+                     </div>
+                   </div>   
                 </div>
-
             </div>
-
-
         </div>
     </div>
 </div>
