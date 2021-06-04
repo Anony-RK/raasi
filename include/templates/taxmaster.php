@@ -7,13 +7,13 @@ $id=0;
         $id = $_POST['id']; 	
     $updatetaxmaster = $userObj->updatetaxmaster($mysqli,$id);  
     ?>
-   <script>location.href='<?php echo $HOSTPATH;  ?>taxmaster&msc=2';</script> 
+   <script>location.href='<?php echo $HOSTPATH;  ?>edittaxmaster&msc=2';</script> 
     <?php	}
     else{   
 		$addtaxmaster = $userObj->addtaxmaster($mysqli);   
         
         ?>
-     <script>location.href='<?php echo $HOSTPATH;  ?>taxmaster&msc=1';</script>
+     <script>location.href='<?php echo $HOSTPATH;  ?>edittaxmaster&msc=1';</script>
         <?php
     }
  }  
@@ -27,7 +27,7 @@ if($del>0)
 {
 	$deletetaxmaster = $userObj->deletetaxmaster($mysqli,$del); 
 	?>
-	<script>location.href='<?php echo $HOSTPATH;  ?>taxmaster&msc=3';</script>
+	<script>location.href='<?php echo $HOSTPATH;  ?>edittaxmaster&msc=3';</script>
 <?php	
 }
 
@@ -68,8 +68,8 @@ if($idupd>0)
 						<li class="breadcrumb-item">Tax Master</li>
 					</ol>
 
-					<a href="editcustomer">
-					<!-- <button type="button" class="btn btn-primary"><span class="icon-border_color"></span>&nbsp Edit Tax Master</button> -->
+					<a href="edittaxmaster">
+					<button type="button" class="btn btn-primary"><span class="icon-border_color"></span>&nbsp Edit Tax Master</button>
 					</a>
 
 				</div>
@@ -80,7 +80,7 @@ if($idupd>0)
 
 
 <!--------form start-->
-<form id = "employee" name="customer" action="" method="post" enctype="multipart/form-data"> 
+<form id = "taxmaster" name="taxmaster" action="" method="post" enctype="multipart/form-data"> 
 <input type="hidden" class="form-control" value="<?php if(isset($taxid )) echo $taxid ; ?>"  id="id" name="id" aria-describedby="id" placeholder="Enter id">
 
  		<!-- Row start -->
@@ -157,151 +157,114 @@ if($idupd>0)
 <hr>
                               <div class="row">
                                    
-                                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group " >
-                                                <!-- <label >Classification <span class="text-danger">*</span></label> -->
+                                      
+                                     
+                                        
+                                      
+                                       <!---TABLE--->
+
+								<div class="row card-body">
+									<div class="col-md-2">
+											<div class="form-group">
                                                 <select class="form-control " tabindex="3" id="classification" name="classification"> 
                                                     <option value=""> Select Classification</option>
                                                     <option <?php if(isset($classification)) { if($classification == "TDS" ) echo 'selected'; }  ?> value="TDS"> TDS</option>
                                                     <option <?php if(isset($classification)) { if($classification == "Custom Duty" ) echo 'selected'; }  ?> value="Custom Duty"> Custom Duty</option>
                                                 </select>
                                                 <label id="classificationcheck" class="text-danger">Select Classification</label>
+											</div>
+									</div>
+									<div class="col-md-2">
+											<div class="form-group">
+                                            <input type="text" tabindex="1" class="form-control " id="description" name="description" value="<?php if(isset($description )) echo $description ; ?>" placeholder="Description" >
+                                                <label id="descriptioncheck" class="text-danger">Enter Description</label>											</div>
+									</div>
+									<div class="col-md-1">
+											<div class="form-group">
+                                            <input type="text" tabindex="1" class="form-control " id="tax" name="tax" value="<?php if(isset($tax )) echo $tax ; ?>" placeholder="Tax" >
+                                                <label id="taxcheck" class="text-danger"> Enter tax</label>											</div>
+									</div>
+									<div class="col-md-2">
+											<div class="form-group">
+                                            <input type="text" tabindex="1" class="form-control " id="cess" name="cess" value="<?php if(isset($cess )) echo $cess ; ?>" placeholder="Cess">
+                                                <label id="cesscheck" class="text-danger">Enter Cess </label>											</div>
+									</div>
+									<div class="col-md-2">
+											<div class="form-group">
+                                            <input type="text" tabindex="1" class="form-control " id="addl" name="addl" value="<?php if(isset($addl )) echo $addl ; ?>" placeholder="Addl">
+                                                <label id="addlcheck" class="text-danger">Enter Addl</label>											</div>
+									</div>
+									<div class="col-md-2">
+											<div class="form-group">
+                                            <input type="text" readonly tabindex="1" class="form-control " id="total" name="total" value="<?php if(isset($total )) echo $total ; ?>" placeholder="Total">
+											</div>
+									</div>
+									
+									<div class="col-md-1">
+											<div class="form-group">
+												<button tabindex="24" type="button" onclick="addtaxtable()" class="form-control bluebutton"><span class="icon-add"></span></button>
+											</div>
+									</div>
 
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group " >
-                                                <!-- <label >Desicription</label> -->
-                                                <input type="text" tabindex="1" class="form-control " id="description" name="description" value="<?php if(isset($description )) echo $description ; ?>" placeholder="Description" >
-                                                <label id="descriptioncheck" class="text-danger">Enter Description</label>
+								</div>
 
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12">
-                                   <div class="form-group " >
-                                                <!-- <label >Tax <span class="text-danger">*</span></label> -->
-                                                <input type="text" tabindex="1" class="form-control " id="tax" name="tax" value="<?php if(isset($tax )) echo $tax ; ?>" placeholder="Tax" >
-                                                <label id="taxcheck" class="text-danger"> Enter tax</label>
-
-                                            </div>
-                                    </div>
-                                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12">
-                                   <div class="form-group " >
-                                                <!-- <label >Cess <span class="text-danger">*</span></label> -->
-                                                <input type="text" tabindex="1" class="form-control " id="cess" name="cess" value="<?php if(isset($cess )) echo $cess ; ?>" placeholder="Cess">
-                                                <label id="cesscheck" class="text-danger">Enter Cess </label>
-
-                                            </div>
-                                    </div>
-                                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group " >
-                                                <!-- <label >Addl <span class="text-danger">*</span></label> -->
-                                                <input type="text" tabindex="1" class="form-control " id="addl" name="addl" value="<?php if(isset($addl )) echo $addl ; ?>" placeholder="Addl">
-                                                <label id="addlcheck" class="text-danger">Enter Addl</label>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group " >
-                                                <!-- <label > Total</label> -->
-                                                <input type="text" readonly tabindex="1" class="form-control " id="total" name="total" value="<?php if(isset($total )) echo $total ; ?>" placeholder="Total">
-
-                                            </div>
-                                        </div>
-                                        <hr><br><br><br>
-                                       <!-----table tax master-------->
-                                       
-				<!-- Page header start -->
-				<!-- <div class="page-header">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item">Tax Listing</li>
-					</ol>					
-					<a href="taxmaster">
-					<button type="button"  tabindex="1" id="submitbranchbtn" name="submitbranchnew"   class="btn btn-primary"><span class="icon-add"></span>&nbsp Add Tax</button>
-					</a>
-				</div>
-				Page header end
-				
-				Main container start
-				<div class="main-container"> -->
-
-					<!-- Row start -->
-					<!-- <div class="row gutters">
-						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-							 -->
-
-							<div class="container-fluid mt-4">
-							
-								<div class="table-responsive">
-								<?php
-$mscid=0;
-if(isset($_GET['msc']))
-{
-$mscid=$_GET['msc'];
-if($mscid==1)
-{?>
- 		<div class="alert alert-success" role="alert">
-                             <div class="alert-text">Tax Added Successfully!</div>
-                         </div> 
- <?php
-}
-if($mscid==2)
-{?>
-	<div class="alert alert-success" role="alert">
-	<div class="alert-text">Tax updated Successfully!</div>
-</div>
-<?php
-}
-if($mscid==3)
-{?>
-<div class="alert alert-danger" role="alert">
-                            <div class="alert-text">Tax Inactive Successfully!</div>
-                        </div>
-<?php
-}
-}
-?>
-									<table id="taxmaster_info" class="table custom-table">
+								<div class="card-body row" style="overflow-x:auto;">
+									<table id="taxtable" class="table-container stocktable table-responsive table custom-table">
 										<thead>
 											<tr>
-											 <th>Financial Year</th>
-											  <th>Classification</th>
-											  <th>Description</th>
-											  <th>Tax</th>
-											  <th>Cess</th>											 
-											  <th>Addl</th>
-											  <th>Total</th>											 
-											  <th>Status</th>
-											  <th>Action</th>
+                                            <th>Financial Year</th>
+												<th>Classification</th>
+												<th>Description</th>
+												<th>Tax</th>
+												<th>Cess</th>
+												<th>Addl</th>
+												<th>Total</th>
+												
+												<th>Action</th>
 											</tr>
 										</thead>
+										<tbody></tbody>
+								<?php
+								if(isset($financialyear)){
+								$financialyear     =explode(',', $financialyear);
+								$classification     =explode(',', $classification);
+								$description       =explode(',', $description);
+								$tax      =explode(',', $tax);
+								$cess        =explode(',', $cess);
+								$addl=explode(',', $addl);
+								$total=explode(',', $total);
+								for($tab=0;$tab<=sizeof($financialyear)-1;$tab++){?>
 										<tbody>
-										
+											<td><input type="text" name="financialyear[]" id="financialyear" class="form-control" value="<?php echo $financialyear[$tab]; ?>"></td>
+
+											<td><input type="text" name="classification[]" id="classification" class="form-control" value="<?php echo $classification[$tab]; ?>"></td>
+
+											<td><input type="text" name="description[]" id="description" class="form-control" value="<?php echo $description[$tab]; ?>"></td>
+
+											<td><input type="text" name="tax[]" id="tax" class="form-control" value="<?php echo $tax[$tab]; ?>"></td>
+
+											<td><input type="text" name="cess[]" id="cess" class="form-control" value="<?php echo $cess[$tab]; ?>"></td>
+
+											<td><input type="text" name="addl[]" id="addl" class="form-control" value="<?php echo $addl[$tab]; ?>"></td>
+
+											<td><input type="text" name="total[]" id="total" class="form-control" value="<?php echo $total[$tab]; ?>"></td>
+											<td>
+												<a onclick='onUpdate(this)'><span class="icon-border_color"></span></a> &nbsp <a onclick='onDelete(this)'><span class='icon-trash-2'></span></a>
+											</td>
 										</tbody>
-						    	</table>
-								</div>
-							</div>
+								<?php }}?>
+									</table>
+								</div><br /><br />
 
-							
-						<!-- </div> -->
-					<!-- </div> -->
-					<!-- Row end -->
-
-				<!-- </div> -->
-				<!-- Main container end -->
-
-	
-
-
-                                       <!-----------end tax table-------------->
+                                       <!------TABLE END---->
                                     </div>
 
 
                                     <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
                             <div class="custom-control custom-checkbox mt-4">
-                                <input type="checkbox" tabindex="70" value="Yes"  <?php if(isset($status)==0){echo'checked';}?> tabindex="16"  class="custom-control-input" id="status" name="status">
-                                <label class="custom-control-label" for="status">Status</label>
+                            <input type="checkbox" value="Yes"  <?php if($status==0){echo'checked';}?> tabindex="25"  class="custom-control-input" id="status" name="status">
+										<label class="custom-control-label" for="status">Status</label>
+									
                             </div><br /><br />
                         </div>
       

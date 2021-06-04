@@ -192,3 +192,98 @@ function taxBulkupload(){
     }
   }
   }
+
+
+
+  var selectedRow=null;
+	function addtaxtable(){
+		var stockFormData = readtaxForm();
+		if(selectedRow == null){
+			insertNewtax(stockFormData);
+			resettaxForm();
+		}else{
+			updatetax(stockFormData);
+			resettaxForm();
+		}
+	}
+	function readtaxForm() {
+		var stockFormData={};
+		stockFormData["financialyear"]=document.getElementById("financialyear").value;
+		stockFormData["classification"]=document.getElementById("classification").value;
+		stockFormData["description"]=document.getElementById("description").value;
+		stockFormData["tax"]=document.getElementById("tax").value;
+		stockFormData["cess"]=document.getElementById("cess").value;
+		stockFormData["addl"]=document.getElementById("addl").value;
+		stockFormData["total"]=document.getElementById("total").value;
+		return stockFormData;
+	}
+	function insertNewtax(data){
+		var table=document.getElementById("taxtable").getElementsByTagName('tbody')[0];
+		var newRow=table.insertRow(table.length);
+		if(data.financialyear != "" && data.financialyear != null && data.financialyear != 0 && data.classification != "" && data.description != "" && data.tax != "" && data.cess != "" && data.addl != "" && data.total != ""){
+		cell1=newRow.insertCell(0);
+		cell1.innerHTML='<input type="text"  name="financialyear[]" id="financialyear" class="form-control" value="'+data.financialyear+'">';
+
+		cell2=newRow.insertCell(1);
+		cell2.innerHTML='<input type="text"  name="classification[]" id="classification" class="form-control" value="'+data.classification+'">';
+
+		cell3=newRow.insertCell(2);
+		cell3.innerHTML='<input type="text"  name="description[]" id="description" class="form-control" value="'+data.description+'">';
+
+		cell4=newRow.insertCell(3);
+		cell4.innerHTML='<input type="text"  name="tax[]" id="tax" class="form-control" value="'+data.tax+'">';
+
+		cell5=newRow.insertCell(4);
+		cell5.innerHTML='<input type="text"  name="cess[]" id="cess" class="form-control" value="'+data.cess+'">';
+
+		cell6=newRow.insertCell(5);
+		cell6.innerHTML='<input type="text"  name="addl[]" id="addl" class="form-control" value="'+data.addl+'">';
+
+		cell7=newRow.insertCell(6);
+		cell7.innerHTML='<input type="text" name="total[]" id="total" class="form-control" value="'+data.total+'">';
+
+		cell8=newRow.insertCell(7);
+		cell8.innerHTML="<a onclick='onUpdate(this)'><span class='icon-border_color'></span></a> &nbsp <a onclick='onDelete(this)'><span class='icon-trash-2'></span></a>";
+	}
+}
+
+	function onUpdate(td){
+		selectedRow=td.parentElement.parentElement;
+		document.getElementById("financialyear").value=selectedRow.cells[0].querySelector('input').value;
+		document.getElementById("classification").value=selectedRow.cells[1].querySelector('input').value;
+		document.getElementById("description").value=selectedRow.cells[2].querySelector('input').value;
+		document.getElementById("tax").value=selectedRow.cells[3].querySelector('input').value;
+		document.getElementById("cess").value=selectedRow.cells[4].querySelector('input').value;
+		document.getElementById("addl").value=selectedRow.cells[5].querySelector('input').value;
+		document.getElementById("total").value=selectedRow.cells[6].querySelector('input').value;
+	}
+
+	function updatetax(data){
+		selectedRow.cells[0].innerHTML='<input type="text"  name="financialyear[]" id="financialyear" class="form-control" value="'+data.financialyear+'">';
+		selectedRow.cells[1].innerHTML='<input type="text"  name="classification[]" id="classification" class="form-control" value="'+data.classification+'">';
+		selectedRow.cells[2].innerHTML='<input type="text"  name="description[]" id="description" class="form-control" value="'+data.description+'">';
+		selectedRow.cells[3].innerHTML='<input type="text"  name="tax[]" id="tax" class="form-control" value="'+data.tax+'">';
+		selectedRow.cells[4].innerHTML='<input type="text"  name="cess[]" id="cess" class="form-control" value="'+data.cess+'">';
+		selectedRow.cells[5].innerHTML='<input type="text"  name="addl[]" id="addl" class="form-control" value="'+data.addl+'">';
+		selectedRow.cells[6].innerHTML='<input type="text"  name="total[]" id="total" class="form-control" value="'+data.total+'">';
+	}
+
+	function onDelete(td){
+		if(confirm('Are you sure to delete this Tax?')){
+			row=td.parentElement.parentElement;
+			document.getElementById("taxtable").deleteRow(row.rowIndex);
+			resetStockForm();
+		}
+	}
+
+	function resettaxForm(){
+		document.getElementById("financialyear").value="";
+		document.getElementById("classification").value="";
+		document.getElementById("description").value="";
+		document.getElementById("tax").value="";
+		document.getElementById("cess").value="";
+		document.getElementById("addl").value="";
+		document.getElementById("total").value="";
+		selectedRow=null;
+	}
+
