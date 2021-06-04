@@ -122,7 +122,7 @@ foreach ($result as $row) {
 
 function count_all_data($connect)
 {
-    $query     = "SELECT * FROM item";
+    $query     = 'SELECT * FROM item';
     $statement = $connect->prepare($query);
     $statement->execute();
     return $statement->rowCount();

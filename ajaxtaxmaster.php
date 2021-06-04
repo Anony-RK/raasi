@@ -93,7 +93,7 @@ foreach ($result as $row) {
 	$id          = $row['taxid'];
 	
 	$action="<a href='taxmaster&upd=$id' title='Edit details'><span class='icon-border_color'></span></a>&nbsp;&nbsp; 
-	<a href='taxmaster&del=$id' title='Edit details'><span class='icon-trash-2'></span></a>";
+	         <a href='taxmaster&del=$id' title='Edit details'><span class='icon-trash-2'></span></a>";
 
 	
 	$sub_array[] = $action;
@@ -102,7 +102,7 @@ foreach ($result as $row) {
 
 function count_all_data($connect)
 {
-    $query     = 'SELECT * FROM taxmaster';
+    $query     = 'SELECT * FROM taxmaster WHERE 1';
     $statement = $connect->prepare($query);
     $statement->execute();
     return $statement->rowCount();

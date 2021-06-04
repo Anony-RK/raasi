@@ -157,7 +157,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : null;
                 <?php   } ?>
 
 
-                <!-- Customer-->
+                <!-- Tax Master-->
                 <?php   if($current_page == 'taxmaster') { ?>
 				<?php include "include/templates/taxmaster.php"?>
                 <?php   } ?>

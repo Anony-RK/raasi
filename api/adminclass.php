@@ -2074,32 +2074,31 @@ public function getcustomer($mysqli,$idupd)
   }
   
  
-  
   public function updatetaxmaster($mysqli,$id){
   
-	  $date  = date('Y-m-d');
+	$date  = date('Y-m-d');
   
 	  if (isset($_POST['financialyear'])) {
-	   $financialyear             = mysqli_real_escape_string($mysqli,$_POST['financialyear']);
-	  }
-	  if (isset($_POST['classification'])) {
-	  $classification             = mysqli_real_escape_string($mysqli,$_POST['classification']);		
-	  }	
-	  if (isset($_POST['description'])) {
-	  $description               = mysqli_real_escape_string($mysqli,$_POST['description']);		
-	  }
-	  if (isset($_POST['tax'])) {
+		$financialyear = mysqli_real_escape_string($mysqli,$_POST['financialyear']);		
+	}
+	if (isset($_POST['classification'])) {
+		$classification               = mysqli_real_escape_string($mysqli,$_POST['classification']);		
+	}
+	if (isset($_POST['description'])) {
+		$description               = mysqli_real_escape_string($mysqli,$_POST['description']);		
+	}
+	if (isset($_POST['tax'])) {
 		$tax               = mysqli_real_escape_string($mysqli,$_POST['tax']);		
-		}
-	  if (isset($_POST['cess'])) {
-	  $cess               = mysqli_real_escape_string($mysqli,$_POST['cess']);		
-	  }
-	  if (isset($_POST['addl'])) {
-	   $addl             = mysqli_real_escape_string($mysqli,$_POST['addl']);
-	  }
-	  if (isset($_POST['total'])) {
-	  $total             = mysqli_real_escape_string($mysqli,$_POST['total']);		
-	  }	
+	}
+	if (isset($_POST['cess'])) {
+		$cess               = mysqli_real_escape_string($mysqli,$_POST['cess']);		
+	}
+	if (isset($_POST['addl'])) {
+		$addl               = mysqli_real_escape_string($mysqli,$_POST['addl']);		
+	}
+	if (isset($_POST['total'])) {
+		$total               = mysqli_real_escape_string($mysqli,$_POST['total']);		
+	}
 	 
 	  if(isset($_POST['status']) && $_POST['status'] == 'Yes')		
 	  {
@@ -2123,7 +2122,7 @@ public function getcustomer($mysqli,$idupd)
   
   $res =$mysqli->query($updateQry)or die("Error in in update Query!.".$mysqli->error); 
   }
-  
+ 
   public function gettaxmaster($mysqli,$idupd)
   {
 	  $qry = "SELECT * FROM taxmaster WHERE taxid='".mysqli_real_escape_string($mysqli,$idupd)."'"; 

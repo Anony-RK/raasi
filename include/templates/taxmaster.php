@@ -1,8 +1,12 @@
 <?php 
 $id=0;
- if(isset($_POST['submittax']) && $_POST['submittax'] != '')
+ if(isset($_POST['submittax']) )
  {
-     
+   
+    if($_POST['financialyear'] != '' && $_POST['classification'] != '' && $_POST['description'] != ''
+ && $_POST['tax'] != '' && $_POST['cess'] != '' &&
+$_POST['addl'] != '' && $_POST['total'] != '' )
+  {
     if(isset($_POST['id']) && $_POST['id'] >0 && is_numeric($_POST['id'])){		
         $id = $_POST['id']; 	
     $updatetaxmaster = $userObj->updatetaxmaster($mysqli,$id);  
@@ -13,9 +17,11 @@ $id=0;
 		$addtaxmaster = $userObj->addtaxmaster($mysqli);   
         
         ?>
+        
      <script>location.href='<?php echo $HOSTPATH;  ?>edittaxmaster&msc=1';</script>
         <?php
     }
+  }
  }  
  
 
@@ -108,7 +114,7 @@ if($idupd>0)
                                                 <label >Financial year <span class="text-danger">*</span></label>
                                                 <select class="form-control w-75" tabindex="3" id="financialyear" name="financialyear">
                                                 
-                                                <option value=""> Select Gender</option>
+                                                <option value=""> Select financialyear</option>
                                                 <option <?php if(isset($financialyear)) { if($financialyear == "2001-2002" ) echo 'selected'; }  ?> value="2001-2002"> 2001-2002</option>
                                                 <option <?php if(isset($financialyear)) { if($financialyear == "2002-2003" ) echo 'selected'; }  ?> value="2002-2003"> 2002-2003</option>
                                                 <option <?php if(isset($financialyear)) { if($financialyear == "2003-2004" ) echo 'selected'; }  ?> value="2003-2004"> 2003-2004</option>
@@ -284,6 +290,10 @@ if($idupd>0)
 					        </div>
                       
                     </div>
+
+
+
+
 
                                 </div>  
 
