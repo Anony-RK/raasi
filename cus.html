@@ -1836,9 +1836,9 @@
 
                 });
             });
-            $('#CustomerName').keyup(function (e) {
+            $('#customername').keyup(function (e) {
 
-                $('#LedgerName').val($('#CustomerName').val());
+                $('#ledgername').val($('#customername').val());
 
             });
             $('#GSTNO').keyup(function () {
@@ -1846,7 +1846,7 @@
             });
             function GSTCheck() {
                 var regex2 = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([a-zA-Z0-9]){1}?$/; //this is the pattern of GST No expersion
-                var a = document.getElementById('GSTNO').value;
+                var a = document.getElementById('gstno').value;
                 if (a != null && a != "") {
                     if (regex2.test(a) == false) {
                         $("#lblGST").show();

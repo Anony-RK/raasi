@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
   //customer Name
   $("#customernamecheck").hide();
@@ -236,7 +238,6 @@ $(document).ready(function () {
              }
            }
 
-
            $('#gstno').keyup(function () {
             this.value = this.value.toUpperCase();
         });
@@ -250,10 +251,13 @@ $(document).ready(function () {
                     return false;
                 }
                 else {
-                    $("#gstnocheck").hide();
+                    $("#stnocheck").hide();
                 }
             }
         }
+        $("#gstno").blur(function () {
+            GSTCheck();
+        });
 
    //gstno
    $("#gstnocheck").hide();
@@ -432,7 +436,6 @@ $(document).ready(function () {
              }
     
 
-
   // Validate email
   $("#emailidcheck").hide();
   let emailiderror = true;
@@ -534,16 +537,5 @@ function customerBulkupload(){
     }
     }
 
-
-    function customers() {
-      // var customername = '';
-      // var cess = 0;
-      
-      if ($("#customername").val() != "" && $("#customername").val() != null) {
-         
-        customername = parseFloat($("#customername").val());
-          
-          
-      }
-      $("#ledgername").val(customername);
-    }
+    
+  

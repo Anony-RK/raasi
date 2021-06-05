@@ -45,7 +45,7 @@ if($idupd>0)
             $customername            = $getcustomer['customername'];
 			$gender                	 = $getcustomer['gender'];
 			$dateofbirth      	     = $getcustomer['dateofbirth'];
-            $img = $customerimage     	     = $getcustomer['customerimage'];
+            $customerimage     	     = $getcustomer['customerimage'];
             $age      			     = $getcustomer['age'];
 			$mobilenumber       	 = $getcustomer['mobilenumber'];
 			$whatsappnumber          = $getcustomer['whatsappnumber'];
@@ -116,7 +116,7 @@ if($idupd>0)
                             <!--Fields -->
                            <div class="col-md-8 "> 
                               <div class="row">
-                              <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                       <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label >Customer ID</label>
                                                 <input type="text" tabindex="1"  class="form-control" id="customerid" name="customerid" value="<?php if(isset($customerid )) echo $customerid ; ?>" >
@@ -124,10 +124,10 @@ if($idupd>0)
 
                                             </div>
                                         </div>
-                                   <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                       <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label >Customer Name</label>
-                                                <input type="text" tabindex="1" class="form-control" id="customername" name="customername" value="<?php if(isset($customername )) echo $customername ; ?>" placeholder="Enter Customer Name">
+                                                <input type="text" tabindex="1" onkeyup="watch()" class="form-control" id="customername" name="customername" value="<?php if(isset($customername )) echo $customername ; ?>" placeholder="Enter Customer Name">
                                                 <label id="customernamecheck" class="text-danger">Enter Customer Name</label>
 
                                             </div>
@@ -170,9 +170,43 @@ if($idupd>0)
                                                 <input type="number" id="mobilenumber" tabindex="4" name="mobilenumber" class="form-control"  value="<?php if(isset($mobilenumber )) echo $mobilenumber ; ?>" placeholder="Enter Mobile Number">
                                                 <label id="mobilenumbercheck" class="text-danger" >Enter Mobile Number</label>
                                             </div>
-                                        </div>
+                                        </div><br><br>
+<!-- </div> -->
+<!-- </div><div class="container"> -->
+    <!-- <div class="row"> -->
+                                       
 
-                                      <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                       
+                                       
+                                    </div>
+                                </div>  
+
+                                   <!-- Field Finished -->
+                                   <?php if(isset($_GET['upd'])<=0){ ?>
+                                   <div class="col-md-4"><br />
+                                   <div class="col-xl-12 col-lglg-4 col-md-6 col-sm-6 col-12 mx-auto">
+                                            <div class="form-group" style="margin: auto;"> 
+                                            <img src="img/profile-pic.jpg" width="43%" id="viewimage" >
+                                            <!-- <img src="uploads/<?php echo $customerimage; ?> " width="43%" id="viewimage" > -->
+                                            <input type="file" tabindex="7"  class="form-control" 
+                                            accept="image/*" onchange="loadFile(event)"  
+                                            id="customerimage" name="customerimage" style="width:43%"
+                                            value="<?php if(isset($customerimage )) echo $customerimage ; ?>">
+                                            </div>
+
+                                        </div>
+                                        <script>
+                                            var loadFile = function(event) {
+                                                var image = document.getElementById("viewimage");
+                                                image.src = URL.createObjectURL(event.target.files[0]);
+                                            };
+                                        </script>
+                                   </div>
+                               <?php } ?>
+                                </div>
+                              </div>
+<div class="row mx-1">
+                              <div class="col-xl-4 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Whatsapp Number</label>
                                                 <input type="text" tabindex="6" id="whatsappnumber" name="whatsappnumber" class="form-control" value="<?php if(isset($whatsappnumber )) echo $whatsappnumber ; ?>">                                           
@@ -180,7 +214,7 @@ if($idupd>0)
                                                 </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                        <div class="col-xl-4 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Anniversery Date</label>
                                                 <input type="date" tabindex="6" id="anniverserydate" name="anniverserydate" class="form-control" value="<?php if(isset($anniverserydate )) echo $anniverserydate ; ?>">
@@ -188,7 +222,7 @@ if($idupd>0)
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                        <div class="col-xl-4 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Email Id</label>
                                                 <input type="email" tabindex="6" id="emailid" name="emailid" class="form-control" value="<?php if(isset($emailid )) echo $emailid ; ?>">
@@ -196,7 +230,7 @@ if($idupd>0)
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                        <div class="col-xl-4 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Need Membership</label>
                                                 <select class="form-control" tabindex="3" id="needmembership" name="needmembership">
@@ -210,7 +244,7 @@ if($idupd>0)
                                         </div>
 
 
-                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                        <div class="col-xl-4 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">GST No</label>
                                                 <input type="text" tabindex="6" id="gstno" name="gstno" class="form-control" value="<?php if(isset($gstno )) echo $gstno ; ?>">
@@ -219,7 +253,7 @@ if($idupd>0)
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                        <div class="col-xl-4 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Contact Persion</label>
                                                 <input type="text" tabindex="6" id="contactpersion" name="contactpersion" class="form-control" value="<?php if(isset($contactpersion )) echo $contactpersion ; ?>">
@@ -227,7 +261,7 @@ if($idupd>0)
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                        <div class="col-xl-4 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Address 1</label>
                                                 <input type="text" tabindex="6" id="address1" name="address1" class="form-control" value="<?php if(isset($address1 )) echo $address1 ; ?>">
@@ -235,7 +269,7 @@ if($idupd>0)
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                        <div class="col-xl-4 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Address 2</label>
                                                 <input type="text" tabindex="6" id="address2" name="address2" class="form-control" value="<?php if(isset($address2 )) echo $address2 ; ?>">
@@ -243,7 +277,7 @@ if($idupd>0)
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                        <div class="col-xl-4 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">Pin Code</label>
                                                 <input type="number" tabindex="6" id="pincode" name="pincode" class="form-control" value="<?php if(isset($pincode )) echo $pincode ; ?>">
@@ -252,7 +286,7 @@ if($idupd>0)
                                         </div>
 
 
-                                        <div class="col-xl-6 col-lglg-4 col-md-6 col-sm-6 col-12">
+                                        <div class="col-xl-4 col-lglg-4 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="disabledInput">State</label>                                               
                                                 <select class="form-control chosen-select comp-field " id="state" name="state"><option value="">Select a State...</option>
@@ -289,35 +323,16 @@ if($idupd>0)
                                                 <label id="statecheck" class="text-danger">Enter State</label>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>  
 
-                                   <!-- Field Finished -->
-                                   <?php if(isset($_GET['upd'])<=0){ ?>
-                                   <div class="col-md-4"><br />
-                                   <div class="col-xl-12 col-lglg-4 col-md-6 col-sm-6 col-12 mx-auto">
-                                            <div class="form-group" style="margin: auto;"> 
-                                            <img src="img/profile-pic.jpg" width="43%" id="viewimage" value="uploads/customerimage/<?php $img ?>" >
-                                            <input type="file" tabindex="7"  class="form-control" 
-                                            accept="image/*" onchange="loadFile(event)"  
-                                            id="customerimage" name="customerimage" style="width:43%"
-                                            value="<?php if(isset($img )) echo $img ; ?>">
-                                            </div>
+
+
+
+
 
                                         </div>
-                                        <script>
-                                            var loadFile = function(event) {
-                                                var image = document.getElementById("viewimage");
-                                                image.src = URL.createObjectURL(event.target.files[0]);
-                                            };
-                                        </script>
-                                   </div>
-                               <?php } ?>
-                                </div>
-                              </div>
                           </div>
                       </div>
-                  <!-- </div> -->
+                  </div>
 
 
 
@@ -376,13 +391,13 @@ if($idupd>0)
                
              </div>
              <div>
-<div id="BulkUploadModal" class="modal">
-  <div class="modal-content">
-    <span class="bulkclose" style="width:4%;">&times;</span>
-  <iframe src="customeruploadbulk.php" height="200px"></iframe>
-  </div>
-</div>
-</div>
+          <div id="BulkUploadModal" class="modal">
+              <div class="modal-content">
+                 <span class="bulkclose" style="width:4%;">&times;</span>
+                   <iframe src="customeruploadbulk.php" height="200px"></iframe>
+             </div>
+          </div>
+         <!-- </div> -->
 
       
              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -431,11 +446,16 @@ if($idupd>0)
                                         <!-- <label id="groupcheck" class="text-danger">Enter Frequency OF Visit</label>            -->
                                     </div>
                                 </div>
+                                        <script>
+                                            function watch() {
+                                            $('#ledgername').val($('#customername').val());
 
+                                        }
+                                        </script>
                                 <div class="col-xl-4 col-lglg-4 col-md-4 col-sm-4 col-12">
                                 <div class="form-group">
                                         <label for="inputEmail">Ledger Name</label>
-                                        <input type="text"  tabindex="12" class="form-control" id="ledgername" name="ledgername"  value="<?php if(isset($ledgername )) echo $ledgername ; ?>">
+                                        <input type="text" readonly  tabindex="12" class="form-control" id="ledgername" name="ledgername"  value="<?php if(isset($ledgername )) echo $ledgername ; ?>">
                                         <!-- <label id="frequencyofvisitcheck" class="text-danger">Enter Frequency OF Visit</label>            -->
                                     </div>
                                 </div>
