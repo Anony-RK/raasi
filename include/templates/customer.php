@@ -329,7 +329,7 @@ if($idupd>0)
 
 
 
-                                        </div>
+                                        </div>             </div>
                           </div>
                       </div>
                   </div>
@@ -487,7 +487,7 @@ if($idupd>0)
                          
                         </div>
                         
-                 </div>
+                 <!-- </div> -->
       
            
             </div>
